@@ -16,9 +16,9 @@ public interface IUserRepository extends JpaRepository<User, Integer> {
 	List<User> buscarNombre(@Param("nameUser") String nameUser);
 	
 	@Query("from User u where u.nameUser like %:institutionUser%")
-	List<User> buscarInstitución(@Param("institutionUser") String institutionUser);
+	List<User> buscarInstitucion(@Param("institutionUser") String institutionUser);
 	
 	@Query("from User u where u.nameUser like %:occupationUser%")
-	List<User> buscarOcupación(@Param("occupationUser") String occupationUser);
+	List<User> buscarOcupacion(@Param("occupationUser") String occupationUser);
 	
 }

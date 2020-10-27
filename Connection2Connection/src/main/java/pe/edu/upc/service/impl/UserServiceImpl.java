@@ -67,14 +67,14 @@ public class UserServiceImpl implements IUserService {
 	
 	@Override
 	@Transactional
-	public List<User> buscarInstitución(String institutionUser) {
-		return dUser.buscarInstitución(institutionUser);
+	public List<User> buscarInstitucion(String institutionUser) {
+		return dUser.buscarInstitucion(institutionUser);
 	}
 	
 	@Override
 	@Transactional
-	public List<User> buscarOcupación(String occupationUser) {
-		return dUser.buscarOcupación(occupationUser);
+	public List<User> buscarOcupacion(String occupationUser) {
+		return dUser.buscarOcupacion(occupationUser);
 	}
 	
 }

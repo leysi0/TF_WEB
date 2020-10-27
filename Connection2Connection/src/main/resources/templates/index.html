@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
+<body>
+
+<div class="header">
+    <div class="logo">
+        <img src="img/logolargo.png" alt="logo" width="400" height="90">
+    </div>
+</div>
+
+<div class="main">
+    <div class="main_left">
+        <h1>
+            Encuentra compañeros o socios tan grandiosos como tú
+        </h1>
+        <h3>
+            Una red social con un enfoque distinto
+        </h3>
+        <button>
+            Conócenos
+        </button>
+    </div>
+    <div class="main_rigth">
+        <form>
+            <div class="email" >
+                <i class="fa fa-envelope iconos" aria-hidden="true"></i>
+                <input class="input" type="text" placeholder="Ingrese su correo" required>
+            </div>
+            <div class="password">
+                <i class="fa fa-lock iconos" aria-hidden="true"></i>
+                <input class="input" type="password" placeholder="Ingrese su contraseña" required>
+            </div>
+            <button>
+                Iniciar Sesión
+            </button>
+            <h5>
+                ¿Olvidaste tu contraseña?
+            </h5>
+        </form>
+    </div>
+</div>
+
+<div class="socials">
+    <ul>
+        <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+        <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+        <li><i class="fa fa-google-plus" aria-hidden="true"></i></li>
+    </ul>
+</div>
+
+
+<div class = "descriptioncontainer">
+    <div class="description">
+        <div class="desc1">
+            <div class="desclogo">
+                <img src="img/logocorto.png" alt="logo2">
+            </div>
+            <div class="letras1">
+                <h2>
+                    Únete a los usuarios que utilizan Connection2Connection.
+                </h2>
+                <p>
+                    Nuestra plataforma de búsqueda ofrece a nuestros usuarios un filtro para <br> poder encontrar
+                    a tus socios según intereses, carreras profesionales o proyectos.
+                </p>
+                <br>
+                <small>
+                    Descubrir beneficios y funcionalidades para: <b>Estudiantes</b> y <b>Empresarios</b>
+                </small>
+            </div>
+        </div>
+
+        <div class="desc2">
+            <div class = "letras2" >
+                <h2>
+                    Seguridad y crecimiento
+                </h2>
+                <p>
+                    mantener la confianza de nuestros usuarios es nuestrs prioridad número uno.
+                    Nuestro compromiso de garantizar tus proyectos seguros al publicarlos.
+                </p>
+                <br>
+                <small>
+                    <b>Más información sobre crecimiento</b>
+                </small>
+
+            </div>
+
+            <div class="desclogo2">
+                <img src="img/imagen2.png" alt="logo2">
+            </div>
+
+        </div>
+        <div class = "marcas">
+            <h1>
+                Con la confianza de las mejores marcas
+            </h1>
+
+            <div class = "logomarcas">
+
+                <img src="img/facebook.png" alt="logo2">
+                <img src="img/microsoft.png" alt="logo2">
+            </div>
+        </div>
+    </div>
+</div>
+<div class = "tipos">
+    <div class = "tipos_titulo">
+        <h1>
+            Selecciona entre 2 tipos de cuenta:
+        </h1>
+    </div>
+
+    <div class = "card_container">
+
+        <div class = "card">
+
+            <img src="img/cafe.png" alt="logo2">
+            <div class = "cardtexto1">
+                <div class = "titulo_tipo1">
+                    <h1>
+                        Estudiante
+                    </h1>
+
+                </div>
+
+            </div>
+
+            <div class= "lista_estudiante">
+
+                <ul>
+                    <li>Dar seguimiento a tus proyectos</li>
+                    <li>Postear tu proyecto</li>
+                    <li>Publicitar tu proyecto</li>
+                    <li>Encontrar tu grupo de trabajo</li>
+                    <li>Poder calificar entre usuarios su compromiso</li>
+                    <li>Chatear con otros usuarios</li>
+                    <li>Notificaciones de inversionistas interesados</li>
+
+                </ul>
+            </div>
+            <div class = "cardbutton">
+                <form th:action="@{/user/irRegistrar}">
+                    <button>
+                        REGISTRARSE
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class = "card">
+
+            <img src="img/señor.png" alt="logo2">
+            <div class = "cardtexto1">
+                <div class = "titulo_tipo1">
+                    <h1>
+                        Empresario
+                    </h1>
+
+                </div>
+
+            </div>
+
+            <div class= "lista_estudiante">
+
+                <ul>
+                    <li>Postear proyectos</li>
+                    <li>Nosotros provilegiamos tus busquedas y proyectos</li>
+                    <li>Encontrar socios</li>
+                    <li>Poder calificar entre usuarios su compromiso </li>
+                    <li>Chatear entre usuarios</li>
+                    <li>Poder invertir en proyectos</li>
+                    <li>Conocer datos seguros de los usuarios</li>
+
+                </ul>
+            </div>
+            <div class = "cardbutton">
+                <form action="index2.html">
+                    <button>
+                        REGISTRARSE
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class = "espaciofinal">
+
+    </div>
+</div>
+
+</body>
+</html>

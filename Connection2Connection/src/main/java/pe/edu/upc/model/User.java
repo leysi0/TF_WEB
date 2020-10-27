@@ -1,12 +1,16 @@
 package pe.edu.upc.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -54,11 +58,35 @@ private static final long serialVersionUID = 1L;
 	@NotBlank(message="No puede estar en blanco")
 	@Column(name="occupationUser", length=60, nullable=false)
 	private String occupation;
-
+	
+	@Column(name="dateUser", length=60, nullable=false)
+	private Date date;
+	
 	@NotEmpty(message="No puede estar vacio")
 	@NotBlank(message="No puede estar en blanco")
-	@Column(name="descriptionUser", length=100, nullable=false)
-	private String description;
+	@Column(name="contra", length=60, nullable=false)
+	private String contra;
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "idRole", nullable =false)
+	private Role role;
+	
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 	public int getIdUser() {
 		return idUser;
@@ -124,12 +152,12 @@ private static final long serialVersionUID = 1L;
 		this.occupation = occupation;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getContra() {
+		return contra;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setContra(String contra) {
+		this.contra = contra;
 	}
 	
 	

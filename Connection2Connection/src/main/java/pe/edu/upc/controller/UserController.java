@@ -1,6 +1,7 @@
 package pe.edu.upc.controller;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -17,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import pe.edu.upc.model.Role;
 import pe.edu.upc.model.User;
+import pe.edu.upc.service.IRoleService;
 import pe.edu.upc.service.IUserService;
 
 @Controller
@@ -26,21 +29,20 @@ public class UserController {
 	
 	@Autowired
 	private IUserService uService;
+	
+	@Autowired
+	private IRoleService rService;
+	
 
 	@RequestMapping("/bienvenido")
 	public String irBienvenido() {
 		return "muro";
 	}
-	@RequestMapping("/")
-	public String irRace(Map<String, Object> model) {
-		model.put("listaUser", uService.listar());
-		return "listUser";
-	}
 	
 	@RequestMapping("/irRegistrar")
 	public String irRegistrar(Model model) {
 		model.addAttribute("user", new User());
-		return "Register";
+		return "index3";
 	}
 	
 	@RequestMapping("/registrar")
@@ -51,9 +53,23 @@ public class UserController {
 			return "user";
 		}
 		else {
+			List<Role> rol= rService.listar();
+			if(rol.isEmpty()){
+				Role rool = new Role();
+				rool.setIdRole(1);
+				rool.setNameRole("Estudiante");
+				rService.insertar(rool);
+				objUser.setRole(rool);
+			}
+			else {
+				Role R=rService.search(1);
+				objUser.setRole(R);
+			}
+			Date requestday = new Date();
+			objUser.setDate(requestday);
 			boolean flag = uService.insertar(objUser);
 			if (flag) {
-				return "redirect:/race/listar";
+				return "redirect:/user/listar";
 			}
 			else {
 				model.addAttribute("mensaje", "Ocurrio un rochetov");

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<body>
+
+<div class="header">
+    <div class="logo">
+        <img src="/img/logolargo.png" alt="logo" width="400" height="90" >
+    </div>
+</div>
+
+<div class="ventanita" id="ve">
+    hola mundo
+</div>
+<div class="main3">
+    <div class="main_left">
+        <h1>
+            Únete a nosotros
+        </h1>
+        <h2>
+            Una red social con un enfoque distinto
+        </h2>
+        <h3>
+            especialmente para ti
+        </h3>
+    </div>
+    <div class="arribita">
+        <h1>
+            REGISTRO ESTUDIANTE
+        </h1>
+    </div>
+    <div class="regis">
+        <form th:action="@{/user/registrar}"th:object="${user}">
+
+            <div class="izquierda">
+                <div class="email" >
+                    <i class="fa fa-envelope iconos" aria-hidden="true" ></i>
+                    <input class="input" type="text" placeholder="Nombre" th:field="*{nameUser}"required>
+                </div>
+
+                <div class="email" >
+                    <i class="fa fa-envelope iconos" aria-hidden="true"></i>
+                    <input class="input" type="text" placeholder="Institucion" th:field="*{institution}"required>
+                </div>
+                <div class="email" >
+                    <i class="fa fa-envelope iconos" aria-hidden="true"></i>
+                    <input class="input" type="text" placeholder="Direccion" th:field="*{adress}"required>
+                </div>
+                 <div class="email" >
+                    <i class="fa fa-envelope iconos" aria-hidden="true"></i>
+                    <input class="input" type="text" placeholder="Telefono" th:field="*{phone}"required>
+                </div>
+            </div>
+            <div class="espacito">
+            </div>
+            <div class="izquierda3">
+               
+                <div class="password">
+                    <i class="fa fa-lock iconos" aria-hidden="true"></i>
+                    <input class="input" type="password" placeholder="Contraseña" th:field="*{contra}"required>
+                </div>
+                <div class="password">
+                    <i class="fa fa-lock iconos" aria-hidden="true"></i>
+                    <input class="input" type="password" placeholder="Confirmacion de contraseña" th:field="*{contra}"required>
+                </div>
+                
+                <div class="email" >
+                    <i class="fa fa-envelope iconos" aria-hidden="true"></i>
+                    <input class="input" type="text" placeholder="Genero" th:field="*{gender}"required>
+                </div>
+                 <div class="email" >
+                    <i class="fa fa-envelope iconos" aria-hidden="true"></i>
+                    <input class="input" type="text" placeholder="Ocupacion" th:field="*{occupation}"required>
+                </div>
+                <div class="email" >
+                    <i class="fa fa-envelope iconos" aria-hidden="true"></i>
+                    <input class="input" type="text" placeholder="Correo" th:field="*{email}"required >
+                </div>
+            </div>
+            <div class="btn_fin">
+                    <button>
+                        FINALIZAR
+                    </button>
+            </div>
+        </form>
+
+
+    </div>
+
+
+</div>
+
+<div class="socials">
+    <ul>
+        <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+        <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+        <li><i class="fa fa-google-plus" aria-hidden="true"></i></li>
+    </ul>
+</div>
+
+
