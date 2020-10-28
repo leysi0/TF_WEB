@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -67,6 +66,10 @@ private static final long serialVersionUID = 1L;
 	@Column(name="contra", length=60, nullable=false)
 	private String contra;
 	
+	@ManyToOne
+	@JoinColumn(name = "idRole", nullable =false)
+	private Role role;
+	
 	public Date getDate() {
 		return date;
 	}
@@ -74,11 +77,6 @@ private static final long serialVersionUID = 1L;
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	@ManyToOne
-	@JoinColumn(name = "idRole", nullable =false)
-	private Role role;
-	
 
 	public Role getRole() {
 		return role;

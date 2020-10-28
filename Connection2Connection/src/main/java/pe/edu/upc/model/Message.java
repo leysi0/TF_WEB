@@ -16,7 +16,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="Role")
+@Table(name="Message")
 public class Message implements Serializable {
 	private static final long serialVersionUID = 1L;
 
