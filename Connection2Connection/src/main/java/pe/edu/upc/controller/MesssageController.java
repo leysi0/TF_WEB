@@ -37,10 +37,10 @@ public class MesssageController {
 	
 	@RequestMapping("/irRegistrar")
 	public String irRegistrar(Model model) {
-		model.addAttribute("listaUsuarios", uService.listar());
+		model.addAttribute("listUser", uService.listar());
 		model.addAttribute("user", new User());
 		model.addAttribute("message", new Message());
-		return "";
+		return "NuevoMensaje";
 	}
 	
 	@RequestMapping("/registrar")
@@ -52,6 +52,9 @@ public class MesssageController {
 			return "message";
 		}
 		else {
+			Date requestday=new Date();
+			objMessage.setDate(requestday);
+			
 			boolean flag = mService.insertar(objMessage);
 			if (flag) {
 				return "redirect:/message/listar";
@@ -83,14 +86,7 @@ public class MesssageController {
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
 		model.put("listaMensajes", mService.listar());
-		return "listMensajes";
+		return "listMensaje";
 	}
 	
-	@RequestMapping("/listarId")
-	public String listar(Map<String, Object> model, @ModelAttribute Message message) 
-	throws ParseException
-	{
-		uService.listarId(message.getIdMessage());
-		return "listMessage";
-	}	
 }

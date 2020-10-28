@@ -9,14 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="Message")
+@Table(name="message")
 public class Message implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -27,7 +26,7 @@ public class Message implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "idUser", nullable =false)
-	private User usuariorecibe;
+	private User user;
 	
 	@NotEmpty(message="No puede estar vacio")
 	@NotBlank(message="No puede estar en blanco")
@@ -36,11 +35,10 @@ public class Message implements Serializable {
 	
 	@NotEmpty(message="No puede estar vacio")
 	@NotBlank(message="No puede estar en blanco")
-	@Column(name="descripcion", length=60, nullable=false)
+	@Column(name="descripcion", length=100, nullable=false)
 	private String descripcion;
 	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
+	
 	@Column(name="fecha", length=60, nullable=false)
 	private Date date;
 
@@ -52,12 +50,12 @@ public class Message implements Serializable {
 		this.idMessage = idMessage;
 	}
 
-	public User getUsuariorecibe() {
-		return usuariorecibe;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsuariorecibe(User usuariorecibe) {
-		this.usuariorecibe = usuariorecibe;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getAsunto() {

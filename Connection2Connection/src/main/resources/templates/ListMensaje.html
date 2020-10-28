@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
@@ -10,6 +10,43 @@
     <style type="text/css">
     	body{margin-top:20px;
 background:#eee;
+}
+.payments-item img.mr-3 {
+    width: 47px;
+}
+.order-list .btn {
+    border-radius: 2px;
+    min-width: 121px;
+    font-size: 13px;
+    padding: 7px 0 7px 0;
+}
+.osahan-account-page-left .nav-link {
+    padding: 18px 20px;
+    border: none;
+    font-weight: 600;
+    color: #535665;
+}
+.osahan-account-page-left .nav-link i {
+    width: 28px;
+    height: 28px;
+    background: #535665;
+    display: inline-block;
+    text-align: center;
+    line-height: 29px;
+    font-size: 15px;
+    border-radius: 50px;
+    margin: 0 7px 0 0px;
+    color: #fff;
+}
+.osahan-account-page-left .nav-link.active {
+    background: #f3f7f8;
+    color: #282c3f !important;
+}
+.osahan-account-page-left .nav-link.active i {
+    background: #282c3f !important;
+}
+.osahan-user-media img {
+    width: 90px;
 }
 
 .btn-compose-email {
@@ -274,38 +311,43 @@ form .form-group {
 <div class="container">
 <div class="row">
     <div class="col-sm-3">
-        <a href="mail-compose.html" class="btn btn-danger btn-block btn-compose-email">Compose Email</a>
-        <ul class="nav nav-pills nav-stacked nav-email shadow mb-20">
-            <li class="active">
-                <a href="#mail-inbox.html">
-                    <i class="fa fa-inbox"></i> Inbox  <span class="label pull-right">7</span>
-                </a>
-            </li>
-        </ul><!-- /.nav -->
+        <div class="col-md-3">
+            <div class="osahan-account-page-left shadow-sm bg-white h-100">
+                <div class="border-bottom p-4">
+                    <div class="osahan-user text-center">
+                        <div class="osahan-user-media">
+                            <img class="mb-3 rounded-pill shadow-sm mt-1" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="gurdeep singh osahan">
+                            <div class="osahan-user-media-body">
+                                <h6 class="mb-2">Gurdeep Singh</h6>
+                                <p class="mb-1">+91 85680-79956</p>
+                                <p>iamosahan@gmail.com</p>
+                                <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="icofont-food-cart"></i> Orders</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
     </div>
     <div class="col-sm-9">
         <div class="panel rounded shadow panel-teal">
             <div class="panel-heading">
                 <div class="pull-left">
-                    <h3 class="panel-title">Inbox (7)</h3>
+                    <h3 class="panel-title">Mensajes enviados (7)</h3>
                 </div>
                 <div class="pull-right">
                 </div>
                 <div class="clearfix"></div>
             </div><!-- /.panel-heading -->
+            
             <div class="panel-sub-heading inner-all">
-                <div class="pull-left">
-                    <ul class="list-inline no-margin">
-                        <li>
-                            <div class="ckbox ckbox-theme">
-                                <input id="checkbox-group" type="checkbox" class="mail-group-checkbox">
-                                <label for="checkbox-group"></label>
-                            </div>
-                        </li>
-                        <li>
-                        </li>
-                    </ul>
-                </div>
+            <a th:href="@{/message/irRegistrar}" class="btn btn-danger btn-block btn-compose-email">Nuevo mensaje</a>
                 <div class="pull-right">
                     <ul class="list-inline no-margin">
                         <li class="hidden-xs">
@@ -325,20 +367,14 @@ form .form-group {
                         </li>
                     </ul>
                 </div>
-                <div class="clearfix"></div>
             </div><!-- /.panel-sub-heading -->
             <div class="panel-body no-padding">
 
                 <div class="table-responsive">
                     <table class="table table-hover table-email">
                         <tbody>
-                        <tr class="unread selected">
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox1" type="checkbox" checked="checked" class="mail-checkbox">
-                                    <label for="checkbox1"></label>
-                                </div>
-                            </td>
+                        <tr th:each="m: ${listaMensajes}" class="unread selected">
+                           
                             <td>
                                 <a href="#" class="star star-checked"><i class="fa fa-star"></i></a>
                             </td>
@@ -348,226 +384,15 @@ form .form-group {
                                         <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar1.png" class="media-object">
                                     </a>
                                     <div class="media-body">
-                                        <h4 class="text-primary">John Kribo</h4>
-                                        <p class="email-summary"><strong>Commits pushed</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit... <span class="label label-success">New</span> </p>
-                                        <span class="media-meta">Today at 6:16am</span>
+                                        <h4 th:text="${m.user.nameUser}" class="text-primary" style="text-align:left;"></h4>
+                                        
+                                        <p th:text="${m.descripcion}"class="email-summary"></p>
+                                        <span th:text="${m.date}" class="media-meta"></span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox2" type="checkbox" class="mail-checkbox">
-                                    <label for="checkbox2"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="star"><i class="fa fa-star"></i></a>
-                            </td>
-                            <td>
-                                <div class="media">
-                                    <a href="#" class="pull-left">
-                                        <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar2.png" class="media-object">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="text-primary">Jennifer Poiyem</h4>
-                                        <p class="email-summary"><strong>Send you gift</strong> Sed do eiusmod tempor incididunt...<span class="label label-success">New</span> </p>
-                                        <span class="media-meta">Today at 1:13am</span>
-                                        <span class="media-attach"><i class="fa fa-paperclip"></i></span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="unread">
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox3" type="checkbox" checked="checked" class="mail-checkbox">
-                                    <label for="checkbox3"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="star star-checked"><i class="fa fa-star"></i></a>
-                            </td>
-                            <td>
-                                <div class="media">
-                                    <a href="#" class="pull-left">
-                                        <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar3.png" class="media-object">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="text-primary">Clara Wati</h4>
-                                        <p class="email-summary"><strong>Follow you</strong> Ut enim ad minim veniam, quis nostrud exercitation... </p>
-                                        <span class="media-meta">Jul 02</span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox4" type="checkbox" class="mail-checkbox">
-                                    <label for="checkbox4"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="star"><i class="fa fa-star"></i></a>
-                            </td>
-                            <td>
-                                <div class="media">
-                                    <a href="#" class="pull-left">
-                                        <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar4.png" class="media-object">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="text-primary">Toni Mriang</h4>
-                                        <p class="email-summary"><strong>Check out new template</strong> Laboris nisi ut aliquip ex ea commodo consequat... <span class="label label-warning">Urgent</span></p>
-                                        <span class="media-meta">Jul 02</span>
-                                        <span class="media-attach"><i class="fa fa-paperclip"></i><i class="fa fa-share"></i></span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="selected">
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox5" type="checkbox" checked="checked" class="mail-checkbox">
-                                    <label for="checkbox5"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="star star-checked"><i class="fa fa-star"></i></a>
-                            </td>
-                            <td>
-                                <div class="media">
-                                    <a href="#" class="pull-left">
-                                        <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar5.png" class="media-object">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="text-primary">Bella negoro</h4>
-                                        <p class="email-summary"><strong>Monthly sales report</strong> Excepteur sint occaecat cupidatat non proident... </p>
-                                        <span class="media-meta">Jul 02</span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="unread">
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox6" type="checkbox" class="mail-checkbox">
-                                    <label for="checkbox6"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="star"><i class="fa fa-star"></i></a>
-                            </td>
-                            <td>
-                                <div class="media">
-                                    <a href="#" class="pull-left">
-                                        <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar6.png" class="media-object">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="text-primary">Kim Mbako</h4>
-                                        <p class="email-summary"><strong>1 New job</strong> Sed ut perspiciatis unde omnis iste natus error sit voluptatem... <span class="label label-danger">Promotion</span></p>
-                                        <span class="media-meta">Jul 01</span>
-                                        <span class="media-attach"><i class="fa fa-paperclip"></i></span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox7" type="checkbox" class="mail-checkbox">
-                                    <label for="checkbox7"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="star"><i class="fa fa-star"></i></a>
-                            </td>
-                            <td>
-                                <div class="media">
-                                    <a href="#" class="pull-left">
-                                        <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar6.png" class="media-object">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="text-primary">Pack Suparman</h4>
-                                        <p class="email-summary"><strong>You sold a item!</strong> Ut enim ad minim veniam, quis nostrud exercitation... </p>
-                                        <span class="media-meta">Jul 01</span>
-                                        <span class="media-attach"><i class="fa fa-users"></i></span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox8" type="checkbox" class="mail-checkbox">
-                                    <label for="checkbox8"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="star"><i class="fa fa-star"></i></a>
-                            </td>
-                            <td>
-                                <div class="media">
-                                    <a href="#" class="pull-left">
-                                        <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar6.png" class="media-object">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="text-primary">Jeddy Mentri</h4>
-                                        <p class="email-summary"><strong>IOS Developer</strong> Ut enim ad minim veniam, quis nostrud exercitation... </p>
-                                        <span class="media-meta">Jun 25</span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox9" type="checkbox" class="mail-checkbox">
-                                    <label for="checkbox9"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="star"><i class="fa fa-star"></i></a>
-                            </td>
-                            <td>
-                                <div class="media">
-                                    <a href="#" class="pull-left">
-                                        <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar1.png" class="media-object">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="text-primary">Daddy Botak</h4>
-                                        <p class="email-summary"><strong>User interface Status</strong> Ut enim ad minim veniam, quis nostrud exercitation... </p>
-                                        <span class="media-meta">Jun 23</span>
-                                        <span class="media-attach"><i class="fa fa-paperclip"></i></span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="unread">
-                            <td>
-                                <div class="ckbox ckbox-theme">
-                                    <input id="checkbox10" type="checkbox" class="mail-checkbox">
-                                    <label for="checkbox10"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="star"><i class="fa fa-star"></i></a>
-                            </td>
-                            <td>
-                                <div class="media">
-                                    <a href="#" class="pull-left">
-                                        <img alt="..." src="https://bootdey.com/img/Content/avatar/avatar6.png" class="media-object">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="text-primary">Sarah Tingting</h4>
-                                        <p class="email-summary"><strong>Java Developer + 2 new jobs</strong> Nemo enim ipsam voluptatem quia voluptas sit aspernatur... </p>
-                                        <span class="media-meta">Jun 05</span>
-                                        <span class="media-attach"><i class="fa fa-warning"></i></span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                       
                         </tbody>
                     </table>
                 </div><!-- /.table-responsive -->

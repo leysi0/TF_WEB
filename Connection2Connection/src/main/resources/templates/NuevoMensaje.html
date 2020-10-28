@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" >
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
@@ -289,98 +289,54 @@ background:#eee;
 				</ul>
 			</div>	
 		</div>
-		
-		<div class="panel panel-default">
-		
-		
-		</div>			
+				
 		
 	</div><!--/.col-->
 	
 	<div class="col-md-9">
 		<div class="panel panel-default">
+		<form class="form-horizontal" role="form" th:action="@{/message/registrar}"th:object="${message}">
 			<div class="panel-body message">
 				<p class="text-center">Nuevo mensaje</p>
-				<form class="form-horizontal" role="form">
+				
 					<div class="form-group">
 				    	<label for="to" class="col-sm-1 control-label">Para:</label>
 				    	<div class="col-sm-11">
-                              <input type="email" class="form-control select2-offscreen" id="to" placeholder="Type email"  tabindex="-1">
+				    		<select class="form-control" th:field="*{user.idUser}">
+              				<option th:each="u:${listUser}" th:value="${u.idUser}" th:text="${u.nameUser}" th:selected="(${u.idUser} == *{user.idUser})"> </option>
+              				</select>
 				    	</div>
 				  	</div>
 					<div class="form-group">
 				    	<label for="cc" class="col-sm-1 control-label">Asunto:</label>
 				    	<div class="col-sm-11">
-                              <input type="email" class="form-control select2-offscreen" id="cc" placeholder="Type email" tabindex="-1">
+                              <input th:field="*{asunto}"required type="text" class="form-control select2-offscreen" placeholder="Asunto" tabindex="-1">
 				    	</div>
 				  	</div>
 				  
-				</form>
+	
 				
 				<div class="col-sm-11 col-sm-offset-1">
 					
-					<div class="btn-toolbar" role="toolbar">
-						
-						<div class="btn-group">
-						  	<button class="btn btn-default"><span class="fa fa-bold"></span></button>
-						  	<button class="btn btn-default"><span class="fa fa-italic"></span></button>
-							<button class="btn btn-default"><span class="fa fa-underline"></span></button>
-						</div>
-
-						<div class="btn-group">
-						  	<button class="btn btn-default"><span class="fa fa-align-left"></span></button>
-						  	<button class="btn btn-default"><span class="fa fa-align-right"></span></button>
-						  	<button class="btn btn-default"><span class="fa fa-align-center"></span></button>
-							<button class="btn btn-default"><span class="fa fa-align-justify"></span></button>
-						</div>
-						
-						<div class="btn-group">
-						  	<button class="btn btn-default"><span class="fa fa-indent"></span></button>
-						  	<button class="btn btn-default"><span class="fa fa-outdent"></span></button>
-						</div>
-						
-						<div class="btn-group">
-						  	<button class="btn btn-default"><span class="fa fa-list-ul"></span></button>
-						  	<button class="btn btn-default"><span class="fa fa-list-ol"></span></button>
-						</div>
-						<button class="btn btn-default"><span class="fa fa-trash-o"></span></button>	
-						<button class="btn btn-default"><span class="fa fa-paperclip"></span></button>
-						<div class="btn-group">
-							<button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-tags"></span> <span class="caret"></span></button>
-							<ul class="dropdown-menu">
-								<li><a href="#">add label <span class="label label-danger"> Home</span></a></li>
-								<li><a href="#">add label <span class="label label-info">Job</span></a></li>
-								<li><a href="#">add label <span class="label label-success">Clients</span></a></li>
-								<li><a href="#">add label <span class="label label-warning">News</span></a></li>
-							</ul>
-						</div>
-					</div>
+			
 					<br>	
 					
 					<div class="form-group">
-						<textarea class="form-control" id="message" name="body" rows="12" placeholder="Click here to reply"></textarea>
+						<textarea  class="form-control" id="message" name="body" rows="12" placeholder="Click aqui para escribir" th:field="*{descripcion}" required ></textarea>
 					</div>
 					
-					<div class="form-group">	
+					<div class="btn_fin">	
 						<button type="submit" class="btn btn-success">Enviar</button>
-						<button type="submit" class="btn btn-danger">Eliminar</button>
 					</div>
 				</div>	
 				  	</div>
-				  
-		
-				
-				
-			</div>	
+				</form>	
+			</div>
+			
 		</div>	
 	</div><!--/.col-->		
 </div>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-    $("#to, #cc, #bcc").select2({tags:["team@bm.com", "ceo@bm.com", "cto@bm.com"]});
-});
-</script>
 </body>
 </html>
