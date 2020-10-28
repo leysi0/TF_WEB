@@ -45,6 +45,18 @@ public class UserController {
 		return "index3";
 	}
 	
+	@RequestMapping("/irRegistrarAdmin")
+	public String irRegistrarAdmin(Model model) {
+		model.addAttribute("user", new User());
+		return "Registro_Admin";
+	}
+	
+	@RequestMapping("/irRegistrarEmpresario")
+	public String irRegistrarEmpresario(Model model) {
+		model.addAttribute("user", new User());
+		return "index4";
+	}
+	
 	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) 
 	throws ParseException
@@ -53,8 +65,8 @@ public class UserController {
 			return "user";
 		}
 		else {
-			List<Role> rol= rService.listar();
-			if(rol.isEmpty()){
+			Role Ra=rService.search(1);
+			if(Ra == null){
 				Role rool = new Role();
 				rool.setIdRole(1);
 				rool.setNameRole("Estudiante");
@@ -62,8 +74,7 @@ public class UserController {
 				objUser.setRole(rool);
 			}
 			else {
-				Role R=rService.search(1);
-				objUser.setRole(R);
+				objUser.setRole(Ra);
 			}
 			Date requestday = new Date();
 			objUser.setDate(requestday);
@@ -78,11 +89,76 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping("/registrarAdmin")
+	public String registrarAdmin(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) 
+	throws ParseException
+	{
+		if (binRes.hasErrors()) {
+			return "user";
+		}
+		else {
+			Role Ra=rService.search(2);
+			if(Ra == null){
+				Role rool = new Role();
+				rool.setIdRole(2);
+				rool.setNameRole("Administrador");
+				rService.insertar(rool);
+				objUser.setRole(rool);
+			}
+			else {
+				objUser.setRole(Ra);
+			}
+			Date requestday = new Date();
+			objUser.setDate(requestday);
+			boolean flag = uService.insertar(objUser);
+			if (flag) {
+				return "redirect:/user/listar";
+			}
+			else {
+				model.addAttribute("mensaje", "Ocurrio un rochetov");
+				return "redirect:/user/irRegistrarAdmin";
+			}
+		}
+	}
+	
+	@RequestMapping("/registrarEmpresario")
+	public String registrarEmpresario(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) 
+	throws ParseException
+	{
+		if (binRes.hasErrors()) {
+			return "user";
+		}
+		else {
+			Role Ra=rService.search(3);
+			if(Ra == null){
+				Role rool = new Role();
+				rool.setIdRole(3);
+				rool.setNameRole("Empresario");
+				rService.insertar(rool);
+				objUser.setRole(rool);
+			}
+			else {
+				objUser.setRole(Ra);
+			}
+			Date requestday = new Date();
+			objUser.setDate(requestday);
+			boolean flag = uService.insertar(objUser);
+			if (flag) {
+				return "redirect:/user/listar";
+			}
+			else {
+				model.addAttribute("mensaje", "Ocurrio un rochetov");
+				return "redirect:/user/irRegistrarEmpresario";
+			}
+		}
+	}
+	
 
 	@RequestMapping("/modificar/{id}")
 	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir) 
 	throws ParseException
 	{
+		
 		Optional<User> objUser = uService.listarId(id);
 		
 		if (objUser == null) {
@@ -91,9 +167,28 @@ public class UserController {
 		}
 		else {
 			model.addAttribute("user", objUser);
-			return "user";
+			model.addAttribute("listRole", rService.listar());
+			return "Modificar_perfil_Admin";
 		}
 	}
+	
+	@RequestMapping("/guardar")
+	public String guardar(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) 
+	throws ParseException
+	{
+		if (binRes.hasErrors()) {
+			return "Modificar_perfil_Admin";
+		}
+			boolean flag = uService.insertar(objUser);
+			if (flag) {
+				return "redirect:/user/listar";
+			}
+			else {
+				model.addAttribute("mensaje", "Ocurrio un rochetov");
+				return "Modificar_perfil_Admin";
+			}
+		}
+	
 	
 	@RequestMapping("/eliminar")
 	public String eliminar(Map<String, Object> model, @RequestParam(value="id") Integer id) 

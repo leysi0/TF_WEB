@@ -20,7 +20,7 @@ body {
     display: inline-block;
     top: 50%;
     -ms-transform: translateY(-60%);
-    transform: translateY(-60%);
+    transform: translateY(0%);
 
 }
 .btn_fin{
@@ -47,9 +47,8 @@ body {
     margin: 0;
     position: absolute;
     top: 18%;
-    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    transform: translateX(109%);
+    transform: translateX(107%);
     color: white;
 }
 .espacito{
