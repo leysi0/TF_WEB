@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>Connection2Connection</title>
+   <title>Connection2Connection</title>
+    <link rel="shortcut icon" href="/img/logocorto.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     	body{margin-top:20px;
-background:#eee;
+ background: url(/img/fondo2.png);
 }
 .payments-item img.mr-3 {
     width: 47px;
@@ -301,36 +302,38 @@ form .form-group {
     padding: 10px 7px;
   }
 }
-
+.portada{
+  width: auto;  
+height: 100px;
+}
 
 
     </style>
 </head>
 <body>
+<div class="portada" ></div>
+<br><br>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" style="background: #ffffff; border-radius: 2px; ">
         <div class="col-md-3">
             <div class="osahan-account-page-left shadow-sm bg-white h-100">
                 <div class="border-bottom p-4">
                     <div class="osahan-user text-center">
                         <div class="osahan-user-media">
                             <img class="mb-3 rounded-pill shadow-sm mt-1" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="gurdeep singh osahan">
-                            <div class="osahan-user-media-body">
-                                <h6 class="mb-2">Gurdeep Singh</h6>
-                                <p class="mb-1">+91 85680-79956</p>
-                                <p>iamosahan@gmail.com</p>
-                                <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
-                            </div>
+                            <br>
+                            <li class="nav-item">
+                            		<br>
+                       				 <a th:href="@{/message/listar}" class="nav-link" > Mensajes</a>
+                       				 <br>
+ 									<a th:href="@{/user/listar}" class="nav-link" > Usuarios</a>
+                   			 </li>
                         </div>
                     </div>
                 </div>
-                <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="icofont-food-cart"></i> Orders</a>
-                    </li>
-                </ul>
+                
             </div>
         </div>
         

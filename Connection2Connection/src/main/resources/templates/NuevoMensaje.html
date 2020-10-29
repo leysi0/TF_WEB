@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>inbox compose message - Bootdey.com</title>
+    <title>Connection2Connection</title>
+    <link rel="shortcut icon" href="/img/logocorto.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     	body{margin-top:20px;
-background:#eee;
+ background: url(/img/fondo2.png);
 }
 
 
@@ -270,9 +271,16 @@ background:#eee;
 .inbox .contacts ul li:hover {
     background: #e4e5e6
 }
+
+.portada{
+  width: auto;  
+height: 100px;
+}
     </style>
 </head>
 <body>
+<div class="portada" ></div>
+<br><br>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://select2.github.io/dist/css/select2.min.css" rel="stylesheet">
 <script src="https://select2.github.io/dist/js/select2.full.js"></script>
@@ -281,7 +289,7 @@ background:#eee;
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-body inbox-menu">						
-				<a href="#page-inbox-compose.html" class="btn btn-danger btn-block"> Bandeja</a>
+				<a th:href="@{/message/listar}" class="btn btn-danger btn-block"> Bandeja</a>
 				<ul>
 					<li>
 						<a href="#page-inbox.html"><i class="fa fa-inbox"></i> Bandeja <span class="label label-danger">4</span></a>
