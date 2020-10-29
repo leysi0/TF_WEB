@@ -188,16 +188,23 @@ a {
 a:hover{
 text-decoration:none;
 }
+.portada{
+  width: auto;  
+height: 100px;
+background: #ffffff;
+}
     </style>
 </head>
 <body>
+<div class="portada" ></div>
+<br><br>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 <hr>
 <div class="container bootstrap snippets bootdey">
     <div class="row">
         <div class="col-lg-12">
         	<div class="col-md-3">
-            <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
+            <div class="main-box-body clearfix" >
                 <div class="border-bottom p-2">
                     <div class="osahan-user text-center">
                         <div class="osahan-user-media">
@@ -213,8 +220,8 @@ text-decoration:none;
                 </div>
                 <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="icofont-food-cart"></i> Mensajes</a>
-                        <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="icofont-food-cart"></i> Muro</a>
+                        <a th:href="@{/message/listar}" class="nav-link" ><i class="icofont-food-cart"></i> Mensajes</a>
+                        <a class="nav-link" href="#orders" ><i class="icofont-food-cart"></i> Muro</a>
                     </li>
                 </ul>
             </div>
@@ -232,7 +239,7 @@ text-decoration:none;
                             
                                 <tr>
                                 <th style="text-align: center;"><span>Usuario</span></th>
-                                <th style="text-align: center;"><span>Fecha de Registro</span></th>
+                                <th style="text-align: center;"><span>Ultima modificación</span></th>
                                 <th style="text-align: center;"><span>Email</span></th>
                                 <th style="text-align: center;"><span>Operaciones</span></th>
                                 <th>&nbsp;</th>

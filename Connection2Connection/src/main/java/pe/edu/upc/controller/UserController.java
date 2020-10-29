@@ -62,7 +62,7 @@ public class UserController {
 	throws ParseException
 	{
 		if (binRes.hasErrors()) {
-			return "user";
+			return "index3";
 		}
 		else {
 			Role Ra=rService.search(1);
@@ -155,31 +155,28 @@ public class UserController {
 	
 
 	@RequestMapping("/modificar/{id}")
-	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir) 
-	throws ParseException
-	{
+	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir){
 		
-		Optional<User> objUser = uService.listarId(id);
+		Optional<User> user = uService.listarId(id);
 		
-		if (objUser == null) {
+		if (user == null) {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un rochesin");
 			return "redirect:/user/listar";
 		}
 		else {
-			model.addAttribute("user", objUser);
+			model.addAttribute("user", user.get());
 			model.addAttribute("listRole", rService.listar());
 			return "Modificar_perfil_Admin";
 		}
 	}
 	
 	@RequestMapping("/guardar")
-	public String guardar(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) 
-	throws ParseException
+	public String guardar(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) throws ParseException
 	{
-		if (binRes.hasErrors()) {
-			return "Modificar_perfil_Admin";
-		}
-			boolean flag = uService.insertar(objUser);
+			
+			Date requestday = new Date();
+			objUser.setDate(requestday);
+			boolean flag = uService.modificar(objUser);
 			if (flag) {
 				return "redirect:/user/listar";
 			}
