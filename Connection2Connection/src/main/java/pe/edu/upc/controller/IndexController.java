@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import pe.edu.upc.model.User;
+import pe.edu.upc.model.Users;
 import pe.edu.upc.service.IRoleService;
 import pe.edu.upc.service.IUserService;
 

@@ -26,7 +26,7 @@ public class Message implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "idUser", nullable =false)
-	private User user;
+	private Users user;
 	
 	@NotEmpty(message="No puede estar vacio")
 	@NotBlank(message="No puede estar en blanco")
@@ -50,11 +50,11 @@ public class Message implements Serializable {
 		this.idMessage = idMessage;
 	}
 
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 

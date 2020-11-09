@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.edu.upc.model.User;
+import pe.edu.upc.model.Users;
 import pe.edu.upc.repository.IUserRepository;
 import pe.edu.upc.service.IUserService;
 
@@ -19,8 +19,8 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	@Transactional
-	public boolean insertar(User user) {
-		User objUser = dUser.save(user);
+	public boolean insertar(Users user) {
+		Users objUser = dUser.save(user);
 		if (objUser == null)
 			return false;
 		else
@@ -29,7 +29,7 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	@Transactional	
-	public boolean modificar(User user) {
+	public boolean modificar(Users user) {
 		boolean flag = false;
 		try {
 			dUser.save(user);
@@ -49,31 +49,31 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<User> listarId(int idUser) {
+	public Optional<Users> listarId(int idUser) {
 		return dUser.findById(idUser);		
 	}
 
 	@Override
 	@Transactional
-	public List<User> listar() {
+	public List<Users> listar() {
 		return dUser.findAll();
 	}
 
 	@Override
 	@Transactional
-	public List<User> buscarNombre(String nameUser) {
+	public List<Users> buscarNombre(String nameUser) {
 		return dUser.buscarNombre(nameUser);
 	}
 	
 	@Override
 	@Transactional
-	public List<User> buscarInstitucion(String institutionUser) {
+	public List<Users> buscarInstitucion(String institutionUser) {
 		return dUser.buscarInstitucion(institutionUser);
 	}
 	
 	@Override
 	@Transactional
-	public List<User> buscarOcupacion(String occupationUser) {
+	public List<Users> buscarOcupacion(String occupationUser) {
 		return dUser.buscarOcupacion(occupationUser);
 	}
 	

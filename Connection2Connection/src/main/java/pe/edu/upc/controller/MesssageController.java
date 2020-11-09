@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.model.Message;
-import pe.edu.upc.model.User;
+import pe.edu.upc.model.Users;
 import pe.edu.upc.service.IMessageService;
 import pe.edu.upc.service.IRoleService;
 import pe.edu.upc.service.IUserService;
@@ -38,7 +38,7 @@ public class MesssageController {
 	@RequestMapping("/irRegistrar")
 	public String irRegistrar(Model model) {
 		model.addAttribute("listUser", uService.listar());
-		model.addAttribute("user", new User());
+		model.addAttribute("user", new Users());
 		model.addAttribute("message", new Message());
 		return "NuevoMensaje";
 	}

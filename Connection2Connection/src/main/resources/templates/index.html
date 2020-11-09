@@ -29,14 +29,14 @@
         </button>
     </div>
     <div class="main_rigth">
-        <form>
+        <form th:action="@{/login}" method="post">
             <div class="email" >
                 <i class="fa fa-envelope iconos" aria-hidden="true"></i>
-                <input class="input" type="text" placeholder="Ingrese su correo" required>
+                <input class="input" type="text" name = "username" id = "username" placeholder="Ingrese su correo" required>
             </div>
             <div class="password">
                 <i class="fa fa-lock iconos" aria-hidden="true"></i>
-                <input class="input" type="password" placeholder="Ingrese su contraseña" required>
+                <input class="input" type="password" name = "password" id = "password"  placeholder="Ingrese su contraseña" required>
             </div>
             <button>
                 Iniciar Sesión

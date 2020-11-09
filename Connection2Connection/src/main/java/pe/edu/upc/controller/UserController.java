@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.model.Role;
-import pe.edu.upc.model.User;
+import pe.edu.upc.model.Users;
 import pe.edu.upc.service.IRoleService;
 import pe.edu.upc.service.IUserService;
 
@@ -41,24 +41,24 @@ public class UserController {
 	
 	@RequestMapping("/irRegistrar")
 	public String irRegistrar(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("user", new Users());
 		return "index3";
 	}
 	
 	@RequestMapping("/irRegistrarAdmin")
 	public String irRegistrarAdmin(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("user", new Users());
 		return "Registro_Admin";
 	}
 	
 	@RequestMapping("/irRegistrarEmpresario")
 	public String irRegistrarEmpresario(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("user", new Users());
 		return "index4";
 	}
 	
 	@RequestMapping("/registrar")
-	public String registrar(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) 
+	public String registrar(@ModelAttribute @Valid Users objUser, BindingResult binRes, Model model) 
 	throws ParseException
 	{
 		if (binRes.hasErrors()) {
@@ -90,7 +90,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/registrarAdmin")
-	public String registrarAdmin(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) 
+	public String registrarAdmin(@ModelAttribute @Valid Users objUser, BindingResult binRes, Model model) 
 	throws ParseException
 	{
 		if (binRes.hasErrors()) {
@@ -122,7 +122,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/registrarEmpresario")
-	public String registrarEmpresario(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) 
+	public String registrarEmpresario(@ModelAttribute @Valid Users objUser, BindingResult binRes, Model model) 
 	throws ParseException
 	{
 		if (binRes.hasErrors()) {
@@ -157,7 +157,7 @@ public class UserController {
 	@RequestMapping("/modificar/{id}")
 	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir){
 		
-		Optional<User> user = uService.listarId(id);
+		Optional<Users> user = uService.listarId(id);
 		
 		if (user == null) {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un rochesin");
@@ -171,7 +171,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/guardar")
-	public String guardar(@ModelAttribute @Valid User objUser, BindingResult binRes, Model model) throws ParseException
+	public String guardar(@ModelAttribute @Valid Users objUser, BindingResult binRes, Model model) throws ParseException
 	{
 			
 			Date requestday = new Date();
@@ -211,7 +211,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/listarId")
-	public String listar(Map<String, Object> model, @ModelAttribute User user) 
+	public String listar(Map<String, Object> model, @ModelAttribute Users user) 
 	throws ParseException
 	{
 		uService.listarId(user.getIdUser());
@@ -219,8 +219,8 @@ public class UserController {
 	}	
 	
 	@RequestMapping("/busqueda")
-	public String buscar(Map<String, Object> model, @ModelAttribute User user ) throws ParseException {
-		List<User> listaUsers;
+	public String buscar(Map<String, Object> model, @ModelAttribute Users user ) throws ParseException {
+		List<Users> listaUsers;
 		user.setNameUser(user.getNameUser());
 		listaUsers = uService.buscarNombre(user.getNameUser());
 		
@@ -233,7 +233,7 @@ public class UserController {
 	
 	@RequestMapping("/irBusqueda")
 	public String irBuscar(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("user", new Users());
 		return "user";
 	}
 	

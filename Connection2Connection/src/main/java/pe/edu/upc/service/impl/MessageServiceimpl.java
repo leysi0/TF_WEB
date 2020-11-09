@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.upc.model.Message;
 import pe.edu.upc.model.Role;
-import pe.edu.upc.model.User;
+import pe.edu.upc.model.Users;
 import pe.edu.upc.repository.IMessageRepository;
 import pe.edu.upc.repository.IRoleRepository;
 import pe.edu.upc.service.IMessageService;

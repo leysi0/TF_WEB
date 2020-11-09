@@ -10,65 +10,56 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="Users")
-public class User implements Serializable {
+public class Users implements Serializable {
 private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUser;
 	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
+
 	@Column(name="nameUser", length=60, nullable=false)
 	private String nameUser;
 	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
+
 	@Column(name="emailUser", length=60, nullable=false)
 	private String email;
 	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
+
 	@Column(name="adressUser", length=60, nullable=false)
 	private String adress;
-	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
+
 	@Column(name="phoneUser", length=9, nullable=false)
 	private String phone;
-	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
+
 	@Column(name="institutionUser", length=60, nullable=false)
 	private String institution;
 	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
+
 	@Column(name="genderUser", length=10, nullable=false)
 	private String gender;
 	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
+
 	@Column(name="occupationUser", length=60, nullable=false)
 	private String occupation;
 	
 	@Column(name="dateUser", length=60, nullable=false)
 	private Date date;
 	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
 	@Column(name="contra", length=60, nullable=false)
 	private String contra;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "idRole", nullable =false)
 	private Role role;
+	
 	
 	public Date getDate() {
 		return date;
@@ -157,6 +148,7 @@ private static final long serialVersionUID = 1L;
 	public void setContra(String contra) {
 		this.contra = contra;
 	}
+
 	
 	
 }
