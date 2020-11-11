@@ -76,5 +76,12 @@ public class UserServiceImpl implements IUserService {
 	public List<Users> buscarOcupacion(String occupationUser) {
 		return dUser.buscarOcupacion(occupationUser);
 	}
+
+	@Override
+	public Users getAccount(String correo) {
+		Users cuenta=new Users();
+        cuenta=dUser.findByCorreo(correo);
+        return cuenta;
+	}
 	
 }

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" >
+<head>
+    <meta charset="utf-8">
+    <title>Connection2Connection</title>
+    <link rel="shortcut icon" href="/img/logocorto.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    
+    		body{
+                background-image: url(/img/imagenprinc.jpg) ;
+                background-size: cover;
+}
+.payments-item img.mr-3 {
+    width: 47px;
+}
+.order-list .btn {
+    border-radius: 2px;
+    min-width: 121px;
+    font-size: 13px;
+    padding: 7px 0 7px 0;
+}
+.osahan-account-page-left .nav-link {
+    padding: 18px 20px;
+    border: none;
+    font-weight: 600;
+    color: #535665;
+}
+.osahan-account-page-left .nav-link i {
+    width: 28px;
+    height: 28px;
+    background: #535665;
+    display: inline-block;
+    text-align: center;
+    line-height: 29px;
+    font-size: 15px;
+    border-radius: 50px;
+    margin: 0 7px 0 0px;
+    color: #fff;
+}
+.osahan-account-page-left .nav-link.active {
+    background: #f3f7f8;
+    color: #282c3f !important;
+}
+.osahan-account-page-left .nav-link.active i {
+    background: #282c3f !important;
+}
+.osahan-user-media img {
+    width: 90px;
+}
+.card offer-card h5.card-title {
+    border: 2px dotted #000;
+}
+.card.offer-card h5 {
+    border: 1px dotted #daceb7;
+    display: inline-table;
+    color: #17a2b8;
+    margin: 0 0 19px 0;
+    font-size: 15px;
+    padding: 6px 10px 6px 6px;
+    border-radius: 2px;
+    background: #fffae6;
+    position: relative;
+}
+.card.offer-card h5 img {
+    height: 22px;
+    object-fit: cover;
+    width: 22px;
+    margin: 0 8px 0 0;
+    border-radius: 2px;
+}
+.card.offer-card h5:after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #daceb7;
+    content: "";
+    left: 30px;
+    position: absolute;
+    bottom: 0;
+}
+.card.offer-card h5:before {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #daceb7;
+    content: "";
+    left: 30px;
+    position: absolute;
+    top: 0;
+}
+.payments-item .media {
+    align-items: center;
+}
+.payments-item .media img {
+    margin: 0 40px 0 11px !important;
+}
+.reviews-members .media .mr-3 {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+}
+.order-list img.mr-4 {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)!important;
+    border-radius: 2px;
+}
+.osahan-cart-item p.text-gray.float-right {
+    margin: 3px 0 0 0;
+    font-size: 12px;
+}
+.osahan-cart-item .food-item {
+    vertical-align: bottom;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+.rounded-pill {
+    border-radius: 50rem!important;
+}
+.main-box.no-header {
+    padding-top: 20px;
+}
+.main-box {
+    background: #FFFFFF;
+    -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    box-shadow: 1px 1px 2px 0 #CCCCCC;
+    margin-bottom: 16px;
+    -webikt-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.table a.table-link.danger {
+    color: #e74c3c;
+}
+.label {
+    border-radius: 3px;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+.user-list tbody td .user-subhead {
+    font-size: 0.875em;
+    font-style: italic;
+}
+.user-list tbody td .user-link {
+    display: block;
+    font-size: 1.25em;
+    padding-top: 3px;
+    margin-left: 60px;
+}
+a {
+    color: #3498db;
+    outline: none!important;
+}
+.user-list tbody td>img {
+    position: relative;
+    max-width: 50px;
+    float: left;
+    margin-right: 15px;
+}
+
+.table thead tr th {
+    text-transform: uppercase;
+    font-size: 0.875em;
+}
+.table thead tr th {
+    border-bottom: 2px solid #e7ebee;
+}
+.table tbody tr td:first-child {
+    font-size: 1.125em;
+    font-weight: 300;
+}
+.table tbody tr td {
+    font-size: 0.875em;
+    vertical-align: middle;
+    border-top: 1px solid #e7ebee;
+    padding: 12px 8px;
+}
+a:hover{
+text-decoration:none;
+}
+.portada{
+  width: auto;  
+height: 20px;
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color: #000;">
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" style="text-align: left;">
+              <li class="nav-item">
+                  <a class="navbar-brand my-2 my-lg-0" th:href="@{/post/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
+                      <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                    </svg></a>
+              </li>
+            <li class="nav-item">
+              <a class="navbar-brand my-2 my-lg-0" th:href="@{/message/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-inbox" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438L14.933 9zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z"/>
+              </svg></a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand my-2 my-lg-0 " href="#"><svg width="1.5em" height="1.5em"viewBox="0 0 16 16" class="bi bi-layers-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
+                  <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
+                </svg></a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand my-2 my-lg-0 " th:href="@{/user/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+              </svg></a>
+            </li>
+          <form class="form-inline my-2 my-lg-0" style="transform: translateX(150%);">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" >
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+            <li class="nav-item" style="transform: translateX(1550%);">
+         	<form th:action="@{/logout}" method="post">
+        	<button class="navbar-brand my-2 my-lg-0 "  ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          	<path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+         	 <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+       		 </svg></button>
+      		  </form>
+      	  	</li>
+          </ul>
+          </div>
+        </nav>
+      </header>
+<div class="portada" ></div>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+    <div class="row">
+        <div class="col-lg-12" style="display: flex;">
+        	<div class="col-lg-5 col-xl-3">
+                <div class="card card-white grid-margin" style="background-color: white;">
+                    <div class="card-heading clearfix">
+                        <br>
+                        <h4 class="card-title" style="transform: translateX(5%);">Perfil</h4>
+                    </div>
+                    <div class="card-body user-profile-card mb-3">
+                        <img src="/img/perfilUsuario.jpg" class="user-profile-image rounded-circle" width="50%" height="50%" style="  transform: translateX(45%); " />
+                        <h4 class="text-center h6 mt-2">Lois Anderson</h4>
+                        <p class="text-center small">UI/UX Designer</p>
+                        <a class="btn btn-theme btn-sm" style="transform: translateX(120%);">Editar Perfil</a>
+                    </div>
+                    <hr />
+                    <hr />
+                    <div class="card-heading clearfix mt-3">
+                        <h4 class="card-title" style="transform: translateX(25%);">Acerca de mi</h4>
+                    </div>
+                    <div class="card-body mb-3"  >
+                        <p class="mb-0" style="transform: translateX(3%);">Lorem ipsum dolor sitelt amet, consectetur adipis icing elit, sed do eiusmod tempor incididunt utitily labore et dolore magna aliqua metavta.</p>
+                    </div>
+                    <hr />
+                   
+                    
+                </div>
+        </div>
+        
+        <div class="col-md-9">
+            <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix" >
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+							<a th:href="@{/user/irRegistrarAdmin}" id="add-row" class="btn btn-success btn-left-block "    > + Agregar</a>
+                            <br><br>
+                            
+                                <tr>
+                                <th style="text-align: center;"><span>Grupo</span></th>
+                                <th style="text-align: center;"><span>Creación de grupo</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr th:each="s: ${listaUsers}">
+                                    <td style="text-align: center;">
+                                        <img src="/img/perfilUsuario.jpg" alt="">
+                                        <a th:text="${s.nameUser}" href="#" class="user-link"></a>
+                                        <span th:text="${s.role.nameRole}" class="user-subhead"></span>
+                                    </td>
+                                    <td th:text="${#dates.format(s.date,'dd/MM/yyyy')}" style="text-align: center;"></td>
+                                    
+                                    <td style="text-align: center;">
+                                        <a th:text="${s.email}" href="#"></a>
+                                    </td>
+                                    <td style="width: 20%  ; text-align: center;">
+                                       
+                                        <a th:href="@{'/user/modificar/' + ${s.idUser}}" class="table-link text-info">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                   
+                                        <a th:href="@{/user/eliminar?id=}+${s.idUser}" class="table-link danger" >
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                       
+                                    </td>
+                                </tr>
+                                
+                        
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+             </div>
+             <br><br><br>
+        </div>
+        
+        </div>
+    </div>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</body>
+</html>

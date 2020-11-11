@@ -7,10 +7,11 @@
     <title>Connection2Connection</title>
     <link rel="shortcut icon" href="/img/logocorto.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    
     <style type="text/css">
-    	body{margin-top:20px;
- background: url(/img/fondo2.png);
+body{
+        background: url(/img/imagenprinc.jpg);
 }
 
 
@@ -274,13 +275,59 @@
 
 .portada{
   width: auto;  
-height: 100px;
+height: 20px;
 }
     </style>
+
 </head>
 <body>
-<div class="portada" ></div>
-<br><br>
+  
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color: #000;">
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" style="text-align: left;">
+              <li class="nav-item">
+                  <a class="navbar-brand my-2 my-lg-0" th:href="@{/post/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
+                      <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                    </svg></a>
+              </li>
+            <li class="nav-item">
+              <a class="navbar-brand my-2 my-lg-0" th:href="@{/message/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-inbox-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm-1.17-.437A1.5 1.5 0 0 1 4.98 3h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z"/>
+              </svg></a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand my-2 my-lg-0 " href="#"><svg width="1.5em" height="1.5em"viewBox="0 0 16 16" class="bi bi-layers-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
+                  <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
+                </svg></a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand my-2 my-lg-0 " th:href="@{/user/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-people" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+              </svg></a>
+            </li>
+          <form class="form-inline my-2 my-lg-0" style="transform: translateX(150%);">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" >
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+           <li class="nav-item" style="transform: translateX(1550%);">
+         	<form th:action="@{/logout}" method="post">
+        	<button class="navbar-brand my-2 my-lg-0 "  ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          	<path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+         	 <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+       		 </svg></button>
+      		  </form>
+      	  </li>
+          </ul>
+          </div>
+        </nav>
+      </header>
+<div class="portada" >
+</div>
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://select2.github.io/dist/css/select2.min.css" rel="stylesheet">
 <script src="https://select2.github.io/dist/js/select2.full.js"></script>
@@ -288,14 +335,29 @@ height: 100px;
 <div class="row inbox">
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-body inbox-menu">						
-				<a th:href="@{/message/listar}" class="btn btn-danger btn-block"> Bandeja</a>
-				<ul>
-					<li>
-						<a href="#page-inbox.html"><i class="fa fa-inbox"></i> Bandeja <span class="label label-danger">4</span></a>
-					</li>
-				</ul>
-			</div>	
+			<div class="card card-white grid-margin">
+                <div class="card-heading clearfix">
+                    <br>
+                    <h4 class="card-title" style="transform: translateX(5%);">Perfil</h4>
+                </div>
+                <div class="card-body user-profile-card mb-3">
+                    <img src="/img/perfilUsuario.jpg" class="user-profile-image rounded-circle" width="50%" height="50%" style=" border-radius: 100px; transform: translateX(45%); " />
+                    <h4 class="text-center h6 mt-2">Lois Anderson</h4>
+                    <p class="text-center small">UI/UX Designer</p>
+                    <a class="btn btn-theme btn-sm" style="transform: translateX(70%);">Editar Perfil</a>
+                </div>
+                <hr />
+                <hr />
+                <div class="card-heading clearfix mt-3">
+                    <h4 class="card-title" style="transform: translateX(10%);">Acerca de mi</h4>
+                </div>
+                <div class="card-body mb-3"  >
+                    <p class="mb-0">Lorem ipsum dolor sitelt amet, consectetur adipis icing elit, sed do eiusmod tempor incididunt utitily labore et dolore magna aliqua metavta.</p>
+                </div>
+                <hr />
+               
+                
+            </div>	
 		</div>
 				
 		
@@ -305,10 +367,10 @@ height: 100px;
 		<div class="panel panel-default">
 		<form class="form-horizontal" role="form" th:action="@{/message/registrar}"th:object="${message}">
 			<div class="panel-body message">
-				<p class="text-center">Nuevo mensaje</p>
+				<p class="text-center" style="color: white;">Nuevo mensaje</p>
 				
 					<div class="form-group">
-				    	<label for="to" class="col-sm-1 control-label">Para:</label>
+				    	<label for="to" class="col-sm-1 control-label" style="color: white;">Para:</label>
 				    	<div class="col-sm-11">
 				    		<select class="form-control" th:field="*{user.idUser}">
               				<option th:each="u:${listUser}" th:value="${u.idUser}" th:text="${u.nameUser}" th:selected="(${u.idUser} == *{user.idUser})"> </option>
@@ -316,7 +378,7 @@ height: 100px;
 				    	</div>
 				  	</div>
 					<div class="form-group">
-				    	<label for="cc" class="col-sm-1 control-label">Asunto:</label>
+				    	<label for="cc" class="col-sm-1 control-label"  style="color: white;" >Asunto:</label>
 				    	<div class="col-sm-11">
                               <input th:field="*{asunto}"required type="text" class="form-control select2-offscreen" placeholder="Asunto" tabindex="-1">
 				    	</div>
@@ -330,6 +392,7 @@ height: 100px;
 					<br>	
 					
 					<div class="form-group">
+                        <label for="cc" class="col-sm-1 control-label"  style="color: white;"  >Mensaje:</label>
 						<textarea  class="form-control" id="message" name="body" rows="12" placeholder="Click aqui para escribir" th:field="*{descripcion}" required ></textarea>
 					</div>
 					

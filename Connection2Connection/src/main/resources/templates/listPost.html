@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
-    	body {
-    background:#eee;
-    margin-top: 20px;
+body {
+    background-image: url(/img/imagenprinc.jpg) ;
+    background-size: cover;
 }
 .page-inner.no-page-title {
-    padding-top: 30px;
+    
+   
+    background-image: url(/img/imagenprinc.jpg) ;
+    background-size: cover;
+    
+
 }
 .page-inner {
     position: relative;
@@ -222,7 +227,51 @@
 </head>
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<div class="container">
+
+    
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color: #000;">
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="text-align: left;">
+          <li class="nav-item">
+              <a class="navbar-brand my-2 my-lg-0"  th:href="@{/post/listar}" ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-door-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
+                <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+              </svg></a>
+          </li>
+        <li class="nav-item">
+          <a class="navbar-brand my-2 my-lg-0"  th:href="@{/message/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-inbox" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438L14.933 9zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z"/>
+          </svg></a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand my-2 my-lg-0 " href="#"><svg width="1.5em" height="1.5em"viewBox="0 0 16 16" class="bi bi-layers-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
+              <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
+            </svg></a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand my-2 my-lg-0 " th:href="@{/user/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-people" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+          </svg></a>
+        </li>
+      <form class="form-inline my-2 my-lg-0" style="transform: translateX(150%);">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" >
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+        <li class="nav-item" style="transform: translateX(1550%);">
+         	<form th:action="@{/logout}" method="post">
+        	<button class="navbar-brand my-2 my-lg-0 "  ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          	<path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+         	 <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+       		 </svg></button>
+      		  </form>
+      	  </li>
+      </ul>
+      </div>
+    </nav>
+  </header>
 <div class="page-inner no-page-title">
     <!-- start page main wrapper -->
     <div id="main-wrapper">
@@ -230,81 +279,56 @@
             <div class="col-lg-5 col-xl-3">
                 <div class="card card-white grid-margin">
                     <div class="card-heading clearfix">
-                        <h4 class="card-title">User Profile</h4>
+                        <h4 class="card-title">Perfil</h4>
                     </div>
                     <div class="card-body user-profile-card mb-3">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="user-profile-image rounded-circle" alt="" />
-                        <h4 class="text-center h6 mt-2">Lois Anderson</h4>
+                        <img src="/img/perfilUsuario.jpg" class="user-profile-image rounded-circle" alt="" />
+                        <h4 th:text="${cuenta}" class="text-center h6 mt-2"></h4>
                         <p class="text-center small">UI/UX Designer</p>
-                        <button class="btn btn-theme btn-sm">Follow</button>
-                        <button class="btn btn-theme btn-sm">Message</button>
+                        <a th:href="@{'/user/modificar/' + ${idCuenta}}" class="btn btn-theme btn-sm">Editar Perfil</a>
                     </div>
                     <hr />
                     <hr />
                     <div class="card-heading clearfix mt-3">
-                        <h4 class="card-title">About</h4>
+                        <h4 class="card-title">Acerca de mi</h4>
                     </div>
                     <div class="card-body mb-3">
                         <p class="mb-0">Lorem ipsum dolor sitelt amet, consectetur adipis icing elit, sed do eiusmod tempor incididunt utitily labore et dolore magna aliqua metavta.</p>
                     </div>
                     <hr />
-                    <div class="card-heading clearfix mt-3">
-                        <h4 class="card-title">Contact Information</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0 text-muted">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Email:</th>
-                                        <td>addyour@emailhere</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Phone:</th>
-                                        <td>(+44) 123 456 789</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Address:</th>
-                                        <td>74 Guild Street 542B, Great North Town MT.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                   
+                    
                 </div>
             </div>
             <div class="col-lg-7 col-xl-6">
                 <div class="card card-white grid-margin">
                     <div class="card-body">
                         <div class="post">
-                            <textarea class="form-control" placeholder="Post" rows="4"></textarea>
+                        <form th:action="@{/post/registrar}" method="post" th:object="${post}">
+                            <textarea th:field="*{description}" class="form-control" placeholder="Publica Algo" rows="4"></textarea>
                             <div class="post-options">
-                                <a href="#"><i class="fa fa-camera"></i></a>
-                                <a href="#"><i class="fas fa-video"></i></a>
-                                <a href="#"><i class="fa fa-music"></i></a>
-                                <button class="btn btn-outline-primary float-right">Post</button>
+                                <button type="submit" class="btn btn-outline-primary float-right">Publicar</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            <table>
-                <tr th:each="p: ${listPosts}" class="unread selected" >
-                <div class="profile-timeline">
-                    <ul class="list-unstyled">
+                    <div class="profile-timeline">
+                    <ul th:each="p: ${listPosts}" class="list-unstyled">
                         <li class="timeline-item">
                             <div class="card card-white grid-margin">
                                 <div class="card-body">
                                     <div class="timeline-item-header">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" />
-                                        <p  th:text="${p.user.nameUser}" ><span> a publicado un estado</span></p>
+                                        <img src="/img/perfilUsuario.jpg" alt="" />
+                                        <p><span th:text="${p.user.nameUser}"> </span></p>
                                         <small th:text="${p.date}"></small>
                                     </div>
                                     <div class="timeline-item-post">
                                         <p th:text="${p.description}"></p>
                                         <div class="timeline-options">
-                                            <a href="#"><i class="fa fa-thumbs-up"></i> Like (22)</a>
-                                            <a href="#"><i class="fa fa-comment"></i> Comment (7)</a>
-                                            <a href="#"><i class="fa fa-share"></i> Share (9)</a>
+                                            <a href="#"><i class="fa fa-thumbs-up"></i> Me gusta</a>
+                                            <a href="#"><i class="fa fa-comment"></i> Comentario</a>
+                                            <a href="#"><i class="fa fa-trash"></i> Eliminar </a>
                                         </div>
                                     </div>
                                 </div>
@@ -312,45 +336,35 @@
                         </li>
                     </ul>
                 </div>
-                </tr>
-            </table>
             </div>
             <div class="col-lg-12 col-xl-3">
                 <div class="card card-white grid-margin">
                     <div class="card-heading clearfix">
-                        <h4 class="card-title">Suggestions</h4>
+                        <h4 class="card-title">Amigos</h4>
                     </div>
                     <div class="card-body">
                         <div class="team">
                             <div class="team-member">
                                 <div class="online on"></div>
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" />
+                                <img src="/img/perfilUsuario.jpg" alt="" />
                             </div>
                             <div class="team-member">
                                 <div class="online on"></div>
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" />
+                                <img src="/img/perfilUsuario.jpg" alt="" />
                             </div>
                             <div class="team-member">
                                 <div class="online off"></div>
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" />
+                                <img src="/img/perfilUsuario.jpg" alt="" />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="card card-white grid-margin">
-                    <div class="card-heading clearfix">
-                        <h4 class="card-title">Some Info</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis architecto.</p>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <!-- Row -->
     </div>
     <!-- end page main wrapper -->
-</div>
 </div>
 
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>

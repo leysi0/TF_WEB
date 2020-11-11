@@ -34,7 +34,7 @@ public class Post implements Serializable {
 	private String description;
 	
 	
-	@Column(name="fecha", length=60, nullable=false)
+	@Column(name="date", length=60, nullable=false)
 	private Date date;
 
 

@@ -9,6 +9,9 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,14 +37,7 @@ public class PostController {
 	@Autowired
 	private IPostService pService;
 	
-	
-	@RequestMapping("/irRegistrar")
-	public String irRegistrar(Model model) {
-		model.addAttribute("listUser", uService.listar());
-		model.addAttribute("user", new Users());
-		model.addAttribute("post", new Post());
-		return "NewPost";
-	}
+	private Users cuenta2;
 	
 	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute @Valid Post objPost, BindingResult binRes, Model model) 
@@ -49,12 +45,16 @@ public class PostController {
 	{
 		if (binRes.hasErrors()) {
 			model.addAttribute("listaUsuarios",uService.listar());
+			model.addAttribute("listPosts", pService.listar());
 			return "post";
 		}
 		else {
 			Date requestday=new Date();
 			objPost.setDate(requestday);
-			
+			Authentication auth = SecurityContextHolder .getContext().getAuthentication();
+	        UserDetails  userDetail = (UserDetails) auth.getPrincipal();
+	        cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
+	        objPost.setUser(cuenta2);
 			boolean flag = pService.insertar(objPost);
 			if (flag) {
 				return "redirect:/post/listar";
@@ -85,6 +85,15 @@ public class PostController {
 	
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
+		Authentication auth = SecurityContextHolder
+                .getContext()
+                .getAuthentication();
+        UserDetails  userDetail = (UserDetails) auth.getPrincipal();
+        cuenta2 = this.uService.getAccount(userDetail.getUsername());
+    	model.put("user", new Users());
+		model.put("post", new Post());
+        model.put("cuenta", cuenta2.getNameUser());
+        model.put("idCuenta", cuenta2.getIdUser());
 		model.put("listPosts", pService.listar());
 		return "ListPost";
 	}

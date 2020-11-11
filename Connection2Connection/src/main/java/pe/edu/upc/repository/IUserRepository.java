@@ -25,5 +25,4 @@ public interface IUserRepository extends JpaRepository<Users, Integer> {
 	public Users findByCorreo(@Param("parametro") String correo);
 	
 	
-	
 }

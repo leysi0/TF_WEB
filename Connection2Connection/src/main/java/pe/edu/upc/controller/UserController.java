@@ -9,6 +9,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,21 +29,19 @@ import pe.edu.upc.service.IUserService;
 public class UserController {
 	
 	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
 	private IUserService uService;
 	
 	@Autowired
 	private IRoleService rService;
 	
-
-	@RequestMapping("/bienvenido")
-	public String irBienvenido() {
-		return "muro";
-	}
 	
-	@RequestMapping("/irRegistrar")
+	@RequestMapping("/irRegistrarEstudiante")
 	public String irRegistrar(Model model) {
 		model.addAttribute("user", new Users());
-		return "index3";
+		return "RegistroEstudiante";
 	}
 	
 	@RequestMapping("/irRegistrarAdmin")
@@ -54,33 +53,26 @@ public class UserController {
 	@RequestMapping("/irRegistrarEmpresario")
 	public String irRegistrarEmpresario(Model model) {
 		model.addAttribute("user", new Users());
-		return "index4";
+		return "RegistroEmpresario";
 	}
 	
-	@RequestMapping("/registrar")
+	@RequestMapping("/registrarEstudiante")
 	public String registrar(@ModelAttribute @Valid Users objUser, BindingResult binRes, Model model) 
 	throws ParseException
 	{
 		if (binRes.hasErrors()) {
-			return "index3";
+			return "RegistroEstudiante";
 		}
 		else {
 			Role Ra=rService.search(1);
-			if(Ra == null){
-				Role rool = new Role();
-				rool.setIdRole(1);
-				rool.setNameRole("Estudiante");
-				rService.insertar(rool);
-				objUser.setRole(rool);
-			}
-			else {
-				objUser.setRole(Ra);
-			}
+			objUser.setRole(Ra);
 			Date requestday = new Date();
+			String bcryptPassword = passwordEncoder.encode(objUser.getContra());
+			objUser.setContra(bcryptPassword);
 			objUser.setDate(requestday);
 			boolean flag = uService.insertar(objUser);
 			if (flag) {
-				return "redirect:/user/listar";
+				return "redirect:/post/listar";
 			}
 			else {
 				model.addAttribute("mensaje", "Ocurrio un rochetov");
@@ -98,17 +90,10 @@ public class UserController {
 		}
 		else {
 			Role Ra=rService.search(2);
-			if(Ra == null){
-				Role rool = new Role();
-				rool.setIdRole(2);
-				rool.setNameRole("Administrador");
-				rService.insertar(rool);
-				objUser.setRole(rool);
-			}
-			else {
-				objUser.setRole(Ra);
-			}
+			objUser.setRole(Ra);
 			Date requestday = new Date();
+			String bcryptPassword = passwordEncoder.encode(objUser.getContra());
+			objUser.setContra(bcryptPassword);
 			objUser.setDate(requestday);
 			boolean flag = uService.insertar(objUser);
 			if (flag) {
@@ -130,17 +115,10 @@ public class UserController {
 		}
 		else {
 			Role Ra=rService.search(3);
-			if(Ra == null){
-				Role rool = new Role();
-				rool.setIdRole(3);
-				rool.setNameRole("Empresario");
-				rService.insertar(rool);
-				objUser.setRole(rool);
-			}
-			else {
-				objUser.setRole(Ra);
-			}
+			objUser.setRole(Ra);
 			Date requestday = new Date();
+			String bcryptPassword = passwordEncoder.encode(objUser.getContra());
+			objUser.setContra(bcryptPassword);
 			objUser.setDate(requestday);
 			boolean flag = uService.insertar(objUser);
 			if (flag) {

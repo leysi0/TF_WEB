@@ -19,19 +19,19 @@ public class LoginController {
 		
 		if(principal !=null) {
 			flash.addFlashAttribute("info","Ya ha iniciado sesion anteriormente");
-			return "redirect:/user/listar";
+			return "redirect:/post/listar";
 		}
 		
 		if(error !=null) {
 			model.addAttribute("error","Error en el login: Nombre de usuario o contraseña incorrecto");
-			return "index";
+			return "login";
 		}
 		
 		if(logout !=null) {
 			model.addAttribute("Success","Ha cerrado sesión correctamente");
-			return "index";
+			return "login";
 		}
 		
-		return "index";
+		return "login";
 	}
 }
