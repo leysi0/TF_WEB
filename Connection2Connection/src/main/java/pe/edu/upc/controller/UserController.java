@@ -37,7 +37,6 @@ public class UserController {
 	@Autowired
 	private IRoleService rService;
 	
-	
 	@RequestMapping("/irRegistrarEstudiante")
 	public String irRegistrar(Model model) {
 		model.addAttribute("user", new Users());
@@ -164,7 +163,7 @@ public class UserController {
 			}
 		}
 	
-	
+
 	@RequestMapping("/eliminar")
 	public String eliminar(Map<String, Object> model, @RequestParam(value="id") Integer id) 
 	{
@@ -214,5 +213,6 @@ public class UserController {
 		model.addAttribute("user", new Users());
 		return "user";
 	}
+	
 	
 }

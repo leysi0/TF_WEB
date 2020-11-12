@@ -37,7 +37,12 @@ public class PostController {
 	@Autowired
 	private IPostService pService;
 	
+	@Autowired
+	private IRoleService rService;
+	
 	private Users cuenta2;
+	
+	String correouser;
 	
 	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute @Valid Post objPost, BindingResult binRes, Model model) 
@@ -49,12 +54,10 @@ public class PostController {
 			return "post";
 		}
 		else {
+			cuenta2 = this.uService.getAccount(correouser);
 			Date requestday=new Date();
 			objPost.setDate(requestday);
-			Authentication auth = SecurityContextHolder .getContext().getAuthentication();
-	        UserDetails  userDetail = (UserDetails) auth.getPrincipal();
-	        cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
-	        objPost.setUser(cuenta2);
+	        objPost.setUser(cuenta2); 
 			boolean flag = pService.insertar(objPost);
 			if (flag) {
 				return "redirect:/post/listar";
@@ -85,17 +88,58 @@ public class PostController {
 	
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
+
+		if(cuenta2 ==null) {
 		Authentication auth = SecurityContextHolder
                 .getContext()
                 .getAuthentication();
         UserDetails  userDetail = (UserDetails) auth.getPrincipal();
-        cuenta2 = this.uService.getAccount(userDetail.getUsername());
+        cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
+		}
+		else
+		{
+		
+	    cuenta2 = this.uService.getAccount(correouser);
+		}
+		correouser = cuenta2.getEmail();
     	model.put("user", new Users());
 		model.put("post", new Post());
         model.put("cuenta", cuenta2.getNameUser());
         model.put("idCuenta", cuenta2.getIdUser());
 		model.put("listPosts", pService.listar());
-		return "ListPost";
+		return "listPost";
 	}
+	
+	@RequestMapping("/modificar/{id}")
+	public String modificar(@PathVariable int id, Model model, RedirectAttributes objRedir){
+		
+		Optional<Users> user = uService.listarId(id);
+		
+		if (user == null) {
+			objRedir.addFlashAttribute("mensaje", "Ocurrio un rochesin");
+			return "redirect:/post/listar";
+		}
+		else {
+			model.addAttribute("user", user.get());
+			model.addAttribute("listRole", rService.listar());
+			return "Modificar_Usuario";
+		}
+	}
+	
+	@RequestMapping("/guardar")
+	public String guardar(@ModelAttribute @Valid Users objUser, BindingResult binRes, Model model) throws ParseException
+	{
+			correouser = objUser.getEmail();
+			Date requestday = new Date();
+			objUser.setDate(requestday);
+			boolean flag = uService.modificar(objUser);
+			if (flag) {
+				return "redirect:/post/listar";
+			}
+			else {
+				model.addAttribute("mensaje", "Ocurrio un rochetov");
+				return "Modificar_Usuario";
+			}
+		}
 	
 }

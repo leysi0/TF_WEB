@@ -1,4 +1,4 @@
-package pe.edu.upc.repository;
+/*package pe.edu.upc.repository;
 
 import java.util.Optional;
 
@@ -10,8 +10,10 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.model.Post;
 import pe.edu.upc.model.Role;
 import pe.edu.upc.model.Team;
+import pe.edu.upc.model.TeamXUser;
 
 @Repository
-public interface ITeamRepository extends JpaRepository<Team, Integer> {
+public interface ITeamXUserRepository extends JpaRepository<TeamXUser, Integer> {
 
 }
+*/
