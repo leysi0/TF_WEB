@@ -9,6 +9,10 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +28,8 @@ import pe.edu.upc.model.Users;
 import pe.edu.upc.service.IRoleService;
 import pe.edu.upc.service.IUserService;
 
+
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -36,6 +42,8 @@ public class UserController {
 	
 	@Autowired
 	private IRoleService rService;
+	
+	private Users cuenta2;
 	
 	@RequestMapping("/irRegistrarEstudiante")
 	public String irRegistrar(Model model) {
@@ -121,7 +129,7 @@ public class UserController {
 			objUser.setDate(requestday);
 			boolean flag = uService.insertar(objUser);
 			if (flag) {
-				return "redirect:/user/listar";
+				return "redirect:/post/listar";
 			}
 			else {
 				model.addAttribute("mensaje", "Ocurrio un rochetov");
@@ -181,9 +189,18 @@ public class UserController {
 		return "listUser";
 	}
 	
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
+		Authentication auth = SecurityContextHolder
+                .getContext()
+                .getAuthentication();
+        UserDetails  userDetail = (UserDetails) auth.getPrincipal();
+        cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
 		model.put("listaUsers", uService.listar());
+		model.put("cuenta", cuenta2.getNameUser());
+		model.put("idCuenta", cuenta2.getIdUser());
+		model.put("user", new Users());
 		return "listUser";
 	}
 	
@@ -204,15 +221,12 @@ public class UserController {
 		if (listaUsers.isEmpty()) {
 			model.put("mensaje", "No se encontro");
 		}
+		model.put("user", new Users());
 		model.put("listaUsers", listaUsers);				
-		return "busqueda";
+		return "listaBusquedaUser";
 	}
 	
-	@RequestMapping("/irBusqueda")
-	public String irBuscar(Model model) {
-		model.addAttribute("user", new Users());
-		return "user";
-	}
+	
 	
 	
 }

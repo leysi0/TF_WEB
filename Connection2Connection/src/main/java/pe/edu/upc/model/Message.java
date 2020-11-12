@@ -38,9 +38,19 @@ public class Message implements Serializable {
 	@Column(name="descripcion", length=100, nullable=false)
 	private String descripcion;
 	
-	
 	@Column(name="fecha", length=60, nullable=false)
 	private Date date;
+
+	@Column(name="correoEmisor", length=100, nullable=false)
+	private String correoEmisor;
+	
+	public String getCorreoEmisor() {
+		return correoEmisor;
+	}
+
+	public void setCorreoEmisor(String correoEmisor) {
+		this.correoEmisor = correoEmisor;
+	}
 
 	public int getIdMessage() {
 		return idMessage;

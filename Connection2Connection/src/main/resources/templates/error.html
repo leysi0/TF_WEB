@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8">
+    <title>Connection2Connection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+body {
+    background-image: url(/img/imagenprinc.jpg) ;
+
+}
+.page-inner.no-page-title {
+    
+   
+    background-image: url(/img/imagenprinc.jpg) ;
+  
+    
+
+}
+.page-inner {
+    position: relative;
+    min-height: calc(100% - 56px);
+    padding: 20px 30px 40px 30px;
+    background: #f3f4f7;
+}
+.card.card-white {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 0.05rem 0.01rem rgba(75, 75, 90, 0.075);
+    padding: 25px;
+}
+.grid-margin {
+    margin-bottom: 2rem;
+}
+.profile-timeline ul li .timeline-item-header {
+    width: 100%;
+    overflow: hidden;
+}
+.profile-timeline ul li .timeline-item-header img {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.profile-timeline ul li .timeline-item-header p {
+    margin: 0;
+    color: #000;
+    font-weight: 500;
+}
+.profile-timeline ul li .timeline-item-header p span {
+    margin: 0;
+    color: #8e8e8e;
+    font-weight: normal;
+}
+.profile-timeline ul li .timeline-item-header small {
+    margin: 0;
+    color: #8e8e8e;
+}
+.profile-timeline ul li .timeline-item-post {
+    padding: 20px 0 0 0;
+    position: relative;
+}
+.profile-timeline ul li .timeline-item-post > img {
+    width: 100%;
+}
+.timeline-options {
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 10px 0 10px 0;
+}
+.timeline-options a {
+    display: block;
+    margin-right: 20px;
+    float: left;
+    color: #2b2b2b;
+    text-decoration: none;
+}
+.timeline-options a i {
+    margin-right: 3px;
+}
+.timeline-options a:hover {
+    color: #5369f8;
+}
+.timeline-comment {
+    overflow: hidden;
+    margin-bottom: 10px;
+    width: 100%;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 5px;
+}
+.timeline-comment .timeline-comment-header {
+    overflow: hidden;
+}
+.timeline-comment .timeline-comment-header img {
+    width: 30px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+}
+.timeline-comment .timeline-comment-header p {
+    color: #000;
+    float: left;
+    margin: 0;
+    font-weight: 500;
+}
+.timeline-comment .timeline-comment-header small {
+    font-weight: normal;
+    color: #8e8e8e;
+}
+.timeline-comment p.timeline-comment-text {
+    display: block;
+    color: #2b2b2b;
+    font-size: 14px;
+    padding-left: 40px;
+}
+.post-options {
+    overflow: hidden;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.post-options a {
+    display: block;
+    margin-top: 5px;
+    margin-right: 20px;
+    float: left;
+    color: #2b2b2b;
+    text-decoration: none;
+    font-size: 16px !important;
+}
+.post-options a:hover {
+    color: #5369f8;
+}
+.online {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ccc;
+}
+.online.on {
+    background: #2ec5d3;
+}
+.online.off {
+    background: #ec5e69;
+}
+#cd-timeline::before {
+    border: 0;
+    background: #f1f1f1;
+}
+.cd-timeline-content p,
+.cd-timeline-content .cd-read-more,
+.cd-timeline-content .cd-date {
+    font-size: 14px;
+}
+.cd-timeline-img.cd-success {
+    background: #2ec5d3;
+}
+.cd-timeline-img.cd-danger {
+    background: #ec5e69;
+}
+.cd-timeline-img.cd-info {
+    background: #5893df;
+}
+.cd-timeline-img.cd-warning {
+    background: #f1c205;
+}
+.cd-timeline-img.cd-primary {
+    background: #9f7ce1;
+}
+.page-inner.full-page {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.user-profile-card {
+    text-align: center;
+}
+.user-profile-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+.team .team-member {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 10px;
+    float: left;
+    position: relative;
+}
+.team .team-member .online {
+    top: 5px;
+    right: 5px;
+}
+.team .team-member img {
+    width: 40px;
+    float: left;
+    border-radius: 50%;
+    margin: 0 5px 0 5px;
+}
+.label.label-success {
+    background: #43d39e;
+}
+.label {
+    font-weight: 400;
+    padding: 4px 8px;
+    font-size: 11px;
+    display: inline-block;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+}
+
+    </style>
+</head>
+<body>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color: #000;">
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="text-align: left;">
+          <li class="nav-item">
+              <a class="navbar-brand my-2 my-lg-0" th:href="@{/post/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-door-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
+                <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+              </svg></a>
+          </li>
+        <li class="nav-item">
+          <a class="navbar-brand my-2 my-lg-0" th:href="@{/message/listarE}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-inbox" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438L14.933 9zM3.809 3.563A1.5 1.5 0 0 1 4.981 3h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z"/>
+          </svg></a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand my-2 my-lg-0 " href="#"><svg width="1.5em" height="1.5em"viewBox="0 0 16 16" class="bi bi-layers-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
+              <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
+            </svg></a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand my-2 my-lg-0 " th:href="@{/user/listar}">><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-people" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+          </svg></a>
+        </li>
+      
+        <li class="nav-item" style="transform: translateX(2100%);">
+        <a class="navbar-brand my-2 my-lg-0 " href="listUser.html"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+          <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+        </svg></a>
+      </li>
+      </ul>
+      </div>
+    </nav>
+  </header>
+<div class="page-inner no-page-title">
+    <!-- start page main wrapper -->
+    <div id="main-wrapper">
+        <div class="row">
+            <div class="col-lg-5 col-xl-3">
+                
+            </div>
+            <div class="col-lg-7 col-xl-6">
+                <div class="card card-white grid-margin">
+                    <div class="card-body" style="transform: translateX(20%); font-size:3em; font-weight:  bolder;">
+                        <span  >No tienes Acceso</span>
+                    </div>
+                </div>
+    
+                   
+                   
+               
+            </div>
+            
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <!-- Row -->
+    </div>
+    <!-- end page main wrapper -->
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</body>
+</html>

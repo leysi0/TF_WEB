@@ -26,7 +26,7 @@ public class Connection2ConnectionApplication implements CommandLineRunner{
 
 	public void run(String... args) throws Exception{
 
-		String contrase = "oscarbasura";
+		String contrase = "admin";
 
         for (int i = 0; i < 1; i++) {
             String bcryptPassword = passwordEncoder.encode(contrase);

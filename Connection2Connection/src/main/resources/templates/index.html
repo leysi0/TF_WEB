@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+<title>Connection2Connection</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Client Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	
+	<!-- css files -->
+    <link href="/index/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="/index/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+	<link href="/index/css/css_slider.css" type="text/css" rel="stylesheet" media="all">
+    <link href="/index/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+	
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<!-- //google fonts -->
+	
+</head>
+<body>
+
+<!-- header -->
+<header>
+	<div class="top-head container">
+		
+	</div>
+	<div class="container">
+		<!-- nav -->
+		<nav class="py-3 d-lg-flex">
+			<div id="logo">
+				<h1> <a href="index.html"> Connection2Connection </a></h1>
+			</div>
+			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+			<input type="checkbox" id="drop" />
+			<ul class="menu ml-auto mt-1">
+				<li class="active"><a th:href="@{/login}">Inicio sesión</a></li>
+				<li class=""><a href="#about">Nosotros</a></li>
+				<li class=""><a href="#contact">Registrarse</a></li>
+			</ul>
+		</nav>
+		<!-- //nav -->
+	</div>
+</header>
+<!-- //header -->
+
+<!-- banner -->
+<div class="banner" id="home">
+	<div class="layer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 banner-text-w3ls">
+					<!-- banner slider-->
+					<div class="csslider infinity" id="slider1">
+						<input type="radio" name="slides" checked="checked" id="slides_1" />
+						<input type="radio" name="slides" id="slides_2" />
+						<input type="radio" name="slides" id="slides_3" />
+						<ul class="banner_slide_bg">
+							<li>
+								<div class="container-fluid">
+									<div class="w3ls_banner_txt">
+										<h3 class="b-w3ltxt text-capitalize mt-md-4">Encuentra </h3>
+										<h4><span ></span>Una red social con un enfoque distinto</h4>
+								    </div>
+								</div>
+							</li>
+
+							<li>
+								<div class="container-fluid">
+									<div class="w3ls_banner_txt">
+										<h3 class="b-w3ltxt text-capitalize mt-md-4">Forma </h3>
+										<h4><span ></span>tu grupo de trabajo</h4>
+								    </div>
+								</div>
+							</li>
+							
+							<li>
+								<div class="container-fluid">
+									<div class="w3ls_banner_txt">
+										<h3 class="b-w3ltxt text-capitalize mt-md-4"> Propón </h3>
+										<h4><span ></span>tu proyecto, tu decisión</h4>
+								    </div>
+								</div>
+							</li>
+
+						</ul>
+						<div class="navigation">
+							<div>
+								<label for="slides_1"></label>
+								<label for="slides_2"></label>
+								<label for="slides_3"></label>
+							</div>
+						</div>
+					</div>
+					<!-- //banner slider-->
+				</div>
+				<div class="col-md-6 px-lg-3 px-0">
+					<div class="banner-form-w3 ml-lg-5">
+						<div class="padding">
+							<form th:action="@{/login}" method="post">
+								<h5 class="mb-3">Ingresar</h5>
+								<div class="form-style-w3layout">
+
+									<button Class="btn"> Iniciar sesión</button>
+									
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+  <!-- banner-bottom -->
+    <section class="some-content py-5" id="about">
+        <div class="container py-md-5">
+            <div class="row about-vv-top mt-2">
+                <div class="col-lg-6 about-info">
+                    <h4 class="title-hny  mb-md-5">Únete a los usuarios que utilizan Connection2Connection</h4>
+                    <p>Nuestra plataforma de búsqueda ofrece a nuestros usuarios un filtro para
+						poder encontrar a tus socios según intereses, carreras profesionales o proyectos.</p>
+					<br>
+					<br>
+						
+                    <div class="read-more-button mt-4">
+                        <a href="#contact" class="read-more btn">Registrarse </a>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 about-img mt-md-4 mt-sm-4">
+					<img src="img/ab1.jpg" class="img-fluid" alt="">
+					<h4 class="title-hny  mb-md-5">Seguridad y crecimiento</h4>
+						<p>Mantener la confianza de nuestros usuarios es nuestra prioridad 
+							número uno. Nuestro compromiso de garantizar tus proyectos seguros al publicarlos.</p>
+                    
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+ <section class="destinations py-5" id="contact">
+	<div class="container py-md-5">
+		  <h3 class="heading text-center mb-3 mb-sm-5">Selecciona entre 2 tipos de cuenta:</h3>
+		<div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+				<h4 class="destination mb-3"></h4>
+				<div class="image-position position-relative">
+					
+					
+				</div>
+                
+			</div>
+			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+				<h4 class="destination mb-3"></h4>
+				<div class="image-position position-relative">
+					<img src="/index/img/imagenEstudiante.jpg" class="img-fluid" alt="">
+					
+				</div>
+				<div class="destinations-info">
+					<div class="caption mb-lg-3">
+						<h4>Estudiante</h4>
+						<a th:href= "@{/user/irRegistrarEstudiante}">Registraste ahora</a>
+					</div>
+                </div>
+                
+			</div>
+			
+			<div class="col-md-3 col-sm-6 col-6 destinations-grids text-center mb-4">
+                <h4 class="destination mb-3"></h4>
+
+				<div class="image-position position-relative">
+					<img src="/index/img/imagenEmpresario.jpg" class="img-fluid" alt="">
+					
+				</div>
+				<div class="destinations-info">
+					<div class="caption mb-lg-3">
+						<h4>Empresario</h4>
+						<a th:href= "@{/user/irRegistrarEmpresario}">Registraste ahora</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+  
+<div class="copy-right-top">
+	<p class="copy-right text-center py-4">&copy;2020, Lima, Perú
+		<a href="http://w3layouts.com/"> Connection2Connection </a>
+	</p>
+</div>
+		
+<!-- move top -->
+<div class="move-top text-right">
+	<a href="#home" class="move-top"> 
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div>
+<!-- move top -->
+
+
+
+</body>
+</html>

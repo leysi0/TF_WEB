@@ -44,5 +44,16 @@ public class MessageServiceimpl implements IMessageService {
 		return dMessage.findAll();
 	}
 
+	@Override
+	public List<Message> listarEnviados(String correoEmisor) {
+		return dMessage.listaEnviados(correoEmisor);
+	}
+
+	@Override
+	public List<Message> listarBandeja(String correoReceptor) {
+		return dMessage.listaBandeja(correoReceptor);
+	}
+
+
 	
 }

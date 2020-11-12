@@ -12,4 +12,6 @@ public interface IMessageService {
 	public boolean insertar(Message message);
 	public void eliminar(int idmessage);
 	List<Message> listar();
+	List<Message> listarEnviados(String correoEmisor);
+	List<Message> listarBandeja(String correoReceptor);
 }

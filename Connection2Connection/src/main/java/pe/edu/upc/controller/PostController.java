@@ -42,8 +42,6 @@ public class PostController {
 	
 	private Users cuenta2;
 	
-	String correouser;
-	
 	@RequestMapping("/registrar")
 	public String registrar(@ModelAttribute @Valid Post objPost, BindingResult binRes, Model model) 
 	throws ParseException
@@ -54,7 +52,6 @@ public class PostController {
 			return "post";
 		}
 		else {
-			cuenta2 = this.uService.getAccount(correouser);
 			Date requestday=new Date();
 			objPost.setDate(requestday);
 	        objPost.setUser(cuenta2); 
@@ -89,19 +86,11 @@ public class PostController {
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
 
-		if(cuenta2 ==null) {
 		Authentication auth = SecurityContextHolder
                 .getContext()
                 .getAuthentication();
         UserDetails  userDetail = (UserDetails) auth.getPrincipal();
         cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
-		}
-		else
-		{
-		
-	    cuenta2 = this.uService.getAccount(correouser);
-		}
-		correouser = cuenta2.getEmail();
     	model.put("user", new Users());
 		model.put("post", new Post());
         model.put("cuenta", cuenta2.getNameUser());
@@ -129,7 +118,6 @@ public class PostController {
 	@RequestMapping("/guardar")
 	public String guardar(@ModelAttribute @Valid Users objUser, BindingResult binRes, Model model) throws ParseException
 	{
-			correouser = objUser.getEmail();
 			Date requestday = new Date();
 			objUser.setDate(requestday);
 			boolean flag = uService.modificar(objUser);
