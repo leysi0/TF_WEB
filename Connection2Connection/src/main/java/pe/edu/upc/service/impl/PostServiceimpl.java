@@ -44,5 +44,11 @@ public class PostServiceimpl implements IPostService {
 		return pPost.findAll();
 	}
 
+	@Override
+	public Optional<Post> listarid(int id) {
+	
+		return pPost.findById(id);
+	}
+
 	
 }

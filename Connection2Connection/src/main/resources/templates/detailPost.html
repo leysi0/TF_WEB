@@ -301,36 +301,43 @@ body {
                 </div>
             </div>
             <div class="col-lg-7 col-xl-6">
-                <div class="card card-white grid-margin">
-                    <div class="card-body">
-                        <div class="post">
-                        <form th:action="@{/post/registrar}" method="post" th:object="${post}">
-                            <textarea th:field="*{description}" class="form-control" placeholder="Publica Algo" rows="4" required></textarea>
-                            <div class="post-options">
-                                <button type="submit" class="btn btn-outline-primary float-right">Publicar</button>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
                     <div class="profile-timeline">
-                    <ul th:each="p: ${listPosts}" class="list-unstyled">
+                    <ul class="list-unstyled">
                         <li class="timeline-item">
                             <div class="card card-white grid-margin">
                                 <div class="card-body">
                                     <div class="timeline-item-header">
                                         <img src="/img/perfilUsuario.jpg" alt="" />
-                                        <p><span th:text="${p.user.nameUser}"> </span></p>
-                                        <small  th:text="${#dates.format(p.date,'dd/mm/YYYY hh:mm aa')}" ></small> 
+                                        <p><span th:text="${post.user.nameUser}"> </span></p>
+                                        <small  th:text="${#dates.format(post.date,'dd/mm/YYYY hh:mm aa')}" ></small> 
                                     </div>
                                     <div class="timeline-item-post">
-                                        <p th:text="${p.description}"></p>
+                                        <p th:text="${post.description}"></p>
                                         <div class="timeline-options">
                                             <a href="#"><i class="fa fa-thumbs-up"></i> Me gusta</a>
-                                            <a th:href="@{'/post/postdetalle/' + ${p.idPost}}"><i class="fa fa-comment"></i> Comentario</a>
+                                            <a href="#"><i class="fa fa-comment"></i> Comentario</a>
                                             <a href="#"><i class="fa fa-trash"></i> Eliminar </a>
                                         </div>
-                            
+
+                                       
+                                        <form th:action="@{'/post/registrarcomentario/' + ${post.idPost}}" method="post" th:object="${comentario}">
+                 
+                                            <textarea th:field="*{descripcion}" class="form-control" placeholder="Comenta algo" rows="1" required></textarea>
+                                            <div class="post-options">
+                                                <p><button type="submit" class="btn btn-outline-primary float-right">Enviar Comentario</button></p>
+                                            </div>
+                                        </form>
+                                        
+                                        <ul th:each="c: ${listComentarios}"  class="list-unstyled">
+                                            <li class="timeline-item" >
+                                            <div class="timeline-item-header">
+                                            <img src="/img/perfilUsuario.jpg" alt="" />
+                                            <p><span th:text="${c.user.nameUser}"> </span></p>
+                                            <small th:text="${c.descripcion}"></small> 
+                                             <small th:text="${#dates.format(c.date,'dd/mm/YYYY hh:mm aa')}" ></small> 
+--                                            </div>
+                                            </li>
+                                        </ul>
                                       
                                     </div>
                                 </div>

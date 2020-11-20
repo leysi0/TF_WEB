@@ -15,14 +15,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import pe.edu.upc.model.Comentario;
 import pe.edu.upc.model.Post;
 import pe.edu.upc.model.Users;
+import pe.edu.upc.service.IComentarioService;
 import pe.edu.upc.service.IPostService;
 import pe.edu.upc.service.IRoleService;
 import pe.edu.upc.service.IUserService;
@@ -40,6 +43,9 @@ public class PostController {
 	@Autowired
 	private IRoleService rService;
 	
+	@Autowired
+	private IComentarioService cService;
+	
 	private Users cuenta2;
 	
 	@RequestMapping("/registrar")
@@ -55,6 +61,7 @@ public class PostController {
 			Date requestday=new Date();
 			objPost.setDate(requestday);
 	        objPost.setUser(cuenta2); 
+	        model.addAttribute("idPost", objPost.getIdPost());
 			boolean flag = pService.insertar(objPost);
 			if (flag) {
 				return "redirect:/post/listar";
@@ -96,6 +103,8 @@ public class PostController {
         model.put("cuenta", cuenta2.getNameUser());
         model.put("idCuenta", cuenta2.getIdUser());
 		model.put("listPosts", pService.listar());
+		model.put("comentario", new Comentario());
+		model.put("listComentarios", cService.listar());
 		return "listPost";
 	}
 	
@@ -128,6 +137,58 @@ public class PostController {
 				model.addAttribute("mensaje", "Ocurrio un rochetov");
 				return "Modificar_Usuario";
 			}
+		}
+	
+	@RequestMapping("/registrarcomentario/{id}")
+	public String registrarcomentario(@PathVariable int id,@ModelAttribute @Valid Comentario objComentario, BindingResult binRes, Model model) 
+	throws ParseException
+	{
+		if (binRes.hasErrors()) {
+			model.addAttribute("listaUsuarios",uService.listar());
+			model.addAttribute("listPosts", pService.listar());
+			return "post";
+		}
+		else {
+			Date requestday=new Date();
+			objComentario.setDate(requestday);
+			
+			Authentication auth = SecurityContextHolder
+	                .getContext()
+	                .getAuthentication();
+	        UserDetails  userDetail = (UserDetails) auth.getPrincipal();
+	        cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
+	        
+			objComentario.setUser(cuenta2); 
+			Optional<Post> posteo = pService.listarid(id);
+			objComentario.setPost(posteo.get()); 
+			boolean flag = cService.insertar(objComentario);
+			if (flag) {
+				
+				String cadena = "redirect:/post/postdetalle/"+id;
+				return cadena;
+			}
+			else {
+				model.addAttribute("mensaje", "Sucedio un error");
+				return "redirect:/post/irRegistrar";
+			}
+		}
+		}
+	
+	@GetMapping("/postdetalle/{id}")
+	public String postdetalle(@PathVariable int id, Model model) 
+	throws ParseException
+	{
+	
+			Optional<Post> posteo = pService.listarid(id);
+			model.addAttribute("user", new Users());
+			model.addAttribute("post", posteo.get());
+	        model.addAttribute("cuenta", cuenta2.getNameUser());
+	        model.addAttribute("idCuenta", cuenta2.getIdUser());
+			model.addAttribute("listPosts", pService.listarid(id));
+			model.addAttribute("comentario", new Comentario());
+			model.addAttribute("listComentarios", cService.listarComentariosxPublicacion(id));
+			return "detailPost";
+		
 		}
 	
 }

@@ -1,6 +1,7 @@
 package pe.edu.upc.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -12,4 +13,5 @@ public interface IPostService {
 	public boolean insertar(Post post);
 	public void eliminar(int idpost);
 	List<Post> listar();
+	Optional<Post> listarid(int id);
 }
