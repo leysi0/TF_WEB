@@ -104,7 +104,7 @@ public class PostController {
         model.put("idCuenta", cuenta2.getIdUser());
 		model.put("listPosts", pService.listar());
 		model.put("comentario", new Comentario());
-		model.put("listComentarios", cService.listar());
+	
 		return "listPost";
 	}
 	
@@ -184,9 +184,8 @@ public class PostController {
 			model.addAttribute("post", posteo.get());
 	        model.addAttribute("cuenta", cuenta2.getNameUser());
 	        model.addAttribute("idCuenta", cuenta2.getIdUser());
-			model.addAttribute("listPosts", pService.listarid(id));
 			model.addAttribute("comentario", new Comentario());
-			model.addAttribute("listComentarios", cService.listarComentariosxPublicacion(id));
+			model.addAttribute("listComentarios", cService.listarComentariosxPublicacion(id));	
 			return "detailPost";
 		
 		}

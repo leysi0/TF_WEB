@@ -231,14 +231,13 @@ body {
     
   <header class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color: #000;">
-      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" style="text-align: left;">
           <li class="nav-item">
-              <a class="navbar-brand my-2 my-lg-0"  th:href="@{/post/listar}" ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-door-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
-                <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-              </svg></a>
+              <a class="navbar-brand my-2 my-lg-0"  th:href="@{/post/listar}" ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  			<path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
+  			<path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+			</svg></a>
           </li>
         <li class="nav-item">
           <a class="navbar-brand my-2 my-lg-0"  th:href="@{/message/listarE}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-inbox" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -246,23 +245,20 @@ body {
           </svg></a>
         </li>
         <li class="nav-item">
-          <a class="navbar-brand my-2 my-lg-0 " th:href="@{/team/listar}"><svg width="1.5em" height="1.5em"viewBox="0 0 16 16" class="bi bi-layers-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
-              <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
-            </svg></a>
+          <a class="navbar-brand my-2 my-lg-0 " th:href="@{/team/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-layers-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  		<path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4z"/>
+  		<path fill-rule="evenodd" d="M2.125 8.567l-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0l-5.17-2.756z"/>
+		</svg></a>
         </li>
         <li class="nav-item">
           <a class="navbar-brand my-2 my-lg-0 " th:href="@{/user/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-people" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
           </svg></a>
         </li>
-      <form class="form-inline my-2 my-lg-0" style="transform: translateX(150%);" th:action="@{/user/busqueda}" th:object="${user}">
-            <input class="form-control mr-sm-2" type="search" placeholder="Escribe un nombre"  th:field="*{nameUser}">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-          </form>
+   
         <li class="nav-item" style="transform: translateX(1600%);">
          	<form th:action="@{/logout}" method="post">
-        	<button class="navbar-brand my-2 my-lg-0 "  style="border: none; background: none;" ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        	<button class="navbar-brand my-2 my-lg-0 " style="border: none; background: none;" ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           	<path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
          	 <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
        		 </svg></button>
@@ -301,44 +297,57 @@ body {
                 </div>
             </div>
             <div class="col-lg-7 col-xl-6">
-                    <div class="profile-timeline">
-                    <ul class="list-unstyled">
+
+                <div class="card card-white grid-margin">
+                    <div class="card-heading clearfix">
+                        <h4 class="card-title"  >Integrantes</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="team" >
+                        	
+                            <div class="team-member" th:each="p:${listTeamXUsers}" style="text-align:center; " >
+                                <img src="/img/perfilUsuario.jpg" alt="" />
+                                <br>
+                                <span th:text="${p.users.nameUser}" style="text-align:center; " ></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card card-white grid-margin">
+                    <div class="card-heading clearfix">
+                        <h4 class="card-title"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-sticky" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 0 1 2.5 1h11A1.5 1.5 0 0 1 15 2.5v6.086a1.5 1.5 0 0 1-.44 1.06l-4.914 4.915a1.5 1.5 0 0 1-1.06.439H2.5A1.5 1.5 0 0 1 1 13.5v-11zM2.5 2a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h6.086a.5.5 0 0 0 .353-.146l4.915-4.915A.5.5 0 0 0 14 8.586V2.5a.5.5 0 0 0-.5-.5h-11z"/>
+                            <path fill-rule="evenodd" d="M9.5 9a.5.5 0 0 0-.5.5v5H8v-5A1.5 1.5 0 0 1 9.5 8h5v1h-5z"/>
+                          </svg> Recordatorios</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="post">
+                        <form th:action="@{'/team/registrarRecor/' + ${idTeam}}" method="post" th:object="${agenda}">
+                            <textarea th:field="*{description}" class="form-control" placeholder="Comunicales algo..." rows="4" required></textarea>
+                            <div class="post-options">
+                                <button type="submit" class="btn btn-outline-primary float-right">Anunciar</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-timeline">
+                    <ul th:each="p: ${listAgendas}" class="list-unstyled">
                         <li class="timeline-item">
                             <div class="card card-white grid-margin">
                                 <div class="card-body">
+                                    <div class="card-heading clearfix">
+                                        <h4 class="card-title"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                            </svg> Descripción</h4>
+                                    </div>
                                     <div class="timeline-item-header">
-                                        <img src="/img/perfilUsuario.jpg" alt="" />
-                                        <p><span th:text="${post.user.nameUser}"> </span></p>
-                                        <small  th:text="${#dates.format(post.date,'dd/mm/YYYY hh:mm aa')}" ></small> 
+                                        <small  th:text="${#dates.format(p.date,'dd/mm/YYYY hh:mm aa')}" ></small> 
                                     </div>
                                     <div class="timeline-item-post">
-                                        <p th:text="${post.description}"></p>
-                                        <div class="timeline-options">
-                                            <a href="#"><i class="fa fa-thumbs-up"></i> Me gusta</a>
-                                            <a href="#"><i class="fa fa-comment"></i> Comentario</a>
-                                            <a href="#"><i class="fa fa-trash"></i> Eliminar </a>
-                                        </div>
-
-                                       
-                                        <form th:action="@{'/post/registrarcomentario/' + ${post.idPost}}" method="post" th:object="${comentario}">
-                 
-                                            <textarea th:field="*{descripcion}" class="form-control" placeholder="Comenta algo" rows="1" required></textarea>
-                                            <div class="post-options">
-                                                <p><button type="submit" class="btn btn-outline-primary float-right">Enviar Comentario</button></p>
-                                            </div>
-                                        </form>
-                                        
-                                        <ul th:each="c: ${listComentarios}"  class="list-unstyled">
-                                            <li class="timeline-item" >
-                                            <div class="timeline-item-header">
-                                            <img src="/img/perfilUsuario.jpg" alt="" />
-                                            <p><span th:text="${c.user.nameUser}"> </span></p>
-                                            <small th:text="${c.descripcion}"></small> 
-                                             <small th:text="${#dates.format(c.date,'dd/mm/YYYY hh:mm aa')}" ></small> 
---                                            </div>
-                                            </li>
-                                        </ul>
-                                      
+                                        <p th:text="${p.description}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -346,30 +355,7 @@ body {
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-12 col-xl-3">
-                <div class="card card-white grid-margin">
-                    <div class="card-heading clearfix">
-                        <h4 class="card-title">Amigos</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="team">
-                            <div class="team-member">
-                                <div class="online on"></div>
-                                <img src="/img/perfilUsuario.jpg" alt="" />
-                            </div>
-                            <div class="team-member">
-                                <div class="online on"></div>
-                                <img src="/img/perfilUsuario.jpg" alt="" />
-                            </div>
-                            <div class="team-member">
-                                <div class="online off"></div>
-                                <img src="/img/perfilUsuario.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+            
         </div>
         <!-- Row -->
     </div>

@@ -1,7 +1,6 @@
-/*package pe.edu.upc.model;
+package pe.edu.upc.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,33 +14,52 @@ import javax.persistence.Table;
 @Entity
 @Table(name="teamXUser")
 public class TeamXUser implements Serializable{
-
+	
+	
+	private static final long serialVersionUID = 1L;
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idTeamXUser;
+	
+	
 	@ManyToOne
 	@JoinColumn(name = "idTeam", nullable =false)
 	private Team team;
 	
-	@Id
+	
 	@ManyToOne
 	@JoinColumn(name = "idUser", nullable =false)
-	private Users user;
+	private Users users;
+
+
+	public int getIdTeamXUser() {
+		return idTeamXUser;
+	}
+
+
+	public void setIdTeamXUser(int idTeamXUser) {
+		this.idTeamXUser = idTeamXUser;
+	}
+
 
 	public Team getTeam() {
 		return team;
 	}
 
+
 	public void setTeam(Team team) {
 		this.team = team;
 	}
 
-	public Users getUser() {
-		return user;
+
+	public Users getUsers() {
+		return users;
 	}
 
-	public void setUser(Users user) {
-		this.user = user;
+
+	public void setUsers(Users users) {
+		this.users = users;
 	}
-	
-	
+
+
 }
-*/

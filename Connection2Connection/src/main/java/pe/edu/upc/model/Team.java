@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
+
+
 @Entity
 @Table(name="team")
 public class Team implements Serializable {
@@ -28,10 +30,10 @@ public class Team implements Serializable {
 	@Column(name = "nameTeam", length=30, nullable =false)
 	private String nameTeam;
 	
-	@NotEmpty(message="No puede estar vacio")
-	@NotBlank(message="No puede estar en blanco")
-	@Column(name="amountTeam",length=2, nullable=false)
+	
+	@Column(name="amountTeam", nullable=false)
 	private int amountTeam;
+	
 	
 	@NotEmpty(message="No puede estar vacio")
 	@NotBlank(message="No puede estar en blanco")
@@ -41,6 +43,9 @@ public class Team implements Serializable {
 	
 	@Column(name="fecha", length=60, nullable=false)
 	private Date date;
+	
+	@OneToMany(mappedBy="team", cascade= CascadeType.ALL)
+	private Set<TeamXUser> teamXUser= new HashSet<>();
 	
 
 	public int getIdTeam() {
@@ -91,6 +96,19 @@ public class Team implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+
+	public Set<TeamXUser> getTeamXUser() {
+		return teamXUser;
+	}
+
+
+	public void setTeamXUser(Set<TeamXUser> teamXUser) {
+		this.teamXUser = teamXUser;
+	}
+
+
+
 
 
 

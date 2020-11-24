@@ -216,7 +216,7 @@ height: 20px;
               </svg></a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand my-2 my-lg-0 " href="#"><svg width="1.5em" height="1.5em"viewBox="0 0 16 16" class="bi bi-layers-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <a class="navbar-brand my-2 my-lg-0 " th:href="@{/team/listar}"><svg width="1.5em" height="1.5em"viewBox="0 0 16 16" class="bi bi-layers-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M3.188 8L.264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l-4.578 2.441a.5.5 0 0 1-.47 0L3.188 8z"/>
                   <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
                 </svg></a>
@@ -232,7 +232,7 @@ height: 20px;
           </form>
             <li class="nav-item" style="transform: translateX(1550%);">
          	<form th:action="@{/logout}" method="post">
-        	<button class="navbar-brand my-2 my-lg-0 "  ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        	<button class="navbar-brand my-2 my-lg-0 "  style="border: none; background: none;" ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           	<path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
          	 <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
        		 </svg></button>

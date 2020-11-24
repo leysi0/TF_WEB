@@ -7,15 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.edu.upc.model.Message;
-import pe.edu.upc.model.Role;
 import pe.edu.upc.model.Team;
 import pe.edu.upc.model.Users;
-import pe.edu.upc.repository.IMessageRepository;
-import pe.edu.upc.repository.IRoleRepository;
 import pe.edu.upc.repository.ITeamRepository;
-import pe.edu.upc.service.IMessageService;
-import pe.edu.upc.service.IRoleService;
+import pe.edu.upc.repository.ITeamXUserRepository;
 import pe.edu.upc.service.ITeamService;
 
 @Service
@@ -23,6 +18,9 @@ public class TeamServiceimpl implements ITeamService {
 	
 	@Autowired
 	private ITeamRepository dTeam;
+	
+	@Autowired
+	private ITeamXUserRepository dTeamx;
 
 	@Override
 	@Transactional
@@ -32,6 +30,23 @@ public class TeamServiceimpl implements ITeamService {
 			return false;
 		else
 			return true;
+	}
+	
+	@Override
+	@Transactional	
+	public boolean modificar(Team team) {
+		boolean flag = false;
+		
+		try {
+		
+			dTeam.save(team);
+			flag = true;
+
+		}
+		catch(Exception ex) {
+			System.out.println("Sucedio un roche...");
+		}
+		return flag;
 	}
 	
 	@Override
@@ -45,6 +60,19 @@ public class TeamServiceimpl implements ITeamService {
 	@Transactional
 	public List<Team> listar() {
 		return dTeam.findAll();
+	}
+
+	@Override
+	public Optional<Team> listarid(int id) {
+		
+		return dTeam.findById(id);
+	}
+
+	@Override
+	public int validar(int idUser, int idTeam) {
+		int rpta = 0;
+		rpta = dTeamx.validarUsuariosXGrupo(idUser, idTeam);
+		return rpta;
 	}
 
 	

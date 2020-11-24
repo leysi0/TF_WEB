@@ -186,7 +186,7 @@ public class UserController {
 			model.put("mensaje", "sucedio un error");
 			model.put("listaUsers", uService.listar());
 		}
-		return "listUser";
+		return "redirect:/user/listar";
 	}
 	
 	@Secured("ROLE_ADMIN")

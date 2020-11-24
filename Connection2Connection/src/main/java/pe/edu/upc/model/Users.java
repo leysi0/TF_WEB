@@ -12,12 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 @Table(name="users")
@@ -64,6 +63,8 @@ private static final long serialVersionUID = 1L;
 	@JoinColumn(name = "idRole", nullable =false)
 	private Role role;
 	
+	@OneToMany(mappedBy="users", cascade= CascadeType.ALL)
+	private Set<TeamXUser> teamXUser= new HashSet<>();
 	
 	public Date getDate() {
 		return date;
@@ -152,6 +153,15 @@ private static final long serialVersionUID = 1L;
 	public void setContra(String contra) {
 		this.contra = contra;
 	}
+
+	public Set<TeamXUser> getTeamXUser() {
+		return teamXUser;
+	}
+
+	public void setTeamXUser(Set<TeamXUser> teamXUser) {
+		this.teamXUser = teamXUser;
+	}
+
 
 
 	

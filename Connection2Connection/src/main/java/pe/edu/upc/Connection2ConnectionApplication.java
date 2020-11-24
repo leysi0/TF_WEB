@@ -30,7 +30,7 @@ public class Connection2ConnectionApplication implements CommandLineRunner{
 
         for (int i = 0; i < 1; i++) {
             String bcryptPassword = passwordEncoder.encode(contrase);
-            System.out.println(bcryptPassword);
+    
         }
 	}
 }

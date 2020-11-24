@@ -260,9 +260,9 @@ body {
             <input class="form-control mr-sm-2" type="search" placeholder="Escribe un nombre"  th:field="*{nameUser}">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
           </form>
-        <li class="nav-item" style="transform: translateX(1550%);">
-         	<form th:action="@{/logout}" method="post">
-        	<button class="navbar-brand my-2 my-lg-0 "  ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <li class="nav-item" style="transform: translateX(1600%);">
+         	<form th:action="@{/logout}" method="post" class="form-inline my-2 my-lg-0" >
+        	<button class="navbar-brand my-2 my-lg-0 " style="border: none; background: none;" ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           	<path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
          	 <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
        		 </svg></button>
@@ -339,30 +339,7 @@ body {
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-12 col-xl-3">
-                <div class="card card-white grid-margin">
-                    <div class="card-heading clearfix">
-                        <h4 class="card-title">Amigos</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="team">
-                            <div class="team-member">
-                                <div class="online on"></div>
-                                <img src="/img/perfilUsuario.jpg" alt="" />
-                            </div>
-                            <div class="team-member">
-                                <div class="online on"></div>
-                                <img src="/img/perfilUsuario.jpg" alt="" />
-                            </div>
-                            <div class="team-member">
-                                <div class="online off"></div>
-                                <img src="/img/perfilUsuario.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+            
         </div>
         <!-- Row -->
     </div>

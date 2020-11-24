@@ -216,7 +216,7 @@ height: 20px;
               </svg></a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand my-2 my-lg-0 " href="@{/team/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-layers-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <a class="navbar-brand my-2 my-lg-0 " th:href="@{/team/listar}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-layers-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   				<path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4z"/>
   				<path fill-rule="evenodd" d="M2.125 8.567l-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0l-5.17-2.756z"/>
 				</svg></a>
@@ -232,7 +232,7 @@ height: 20px;
           </form>
             <li class="nav-item" style="transform: translateX(1550%);">
          	<form th:action="@{/logout}" method="post">
-        	<button class="navbar-brand my-2 my-lg-0 "  ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        	<button class="navbar-brand my-2 my-lg-0 " style="border: none; background: none;" ><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           	<path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
          	 <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
        		 </svg></button>
@@ -255,9 +255,9 @@ height: 20px;
                     </div>
                     <div class="card-body user-profile-card mb-3">
                         <img src="/img/perfilUsuario.jpg" class="user-profile-image rounded-circle" width="50%" height="50%" style="  transform: translateX(45%); " />
-                        <h4 class="text-center h6 mt-2">Nombre usuario</h4>
+                        <h4 th:text="${cuenta}" class="text-center h6 mt-2"></h4>
                         <p class="text-center small">UI/UX Designer</p>
-                        <a class="btn btn-theme btn-sm" style="transform: translateX(120%);">Editar Perfil</a>
+                        <a class="btn btn-theme btn-sm" style="transform: translateX(120%);" th:href="@{'/post/modificar/' + ${idCuenta}}">Editar Perfil</a>
                     </div>
                     <hr />
                     <hr />
@@ -268,7 +268,6 @@ height: 20px;
                         <p class="mb-0" style="transform: translateX(3%);">Lorem ipsum dolor sitelt amet, consectetur adipis icing elit, sed do eiusmod tempor incididunt utitily labore et dolore magna aliqua metavta.</p>
                     </div>
                     <hr />
-                   
                     
                 </div>
         </div>
@@ -280,7 +279,7 @@ height: 20px;
                     <div class="table-responsive">
                         <table class="table user-list">
                             <thead>
-							<a th:href="@{/team/irRegistrarAdmin}" id="add-row" class="btn btn-success btn-left-block "    > + Agregar</a>
+							<a th:href="@{/team/irRegistrar}" id="add-row" class="btn btn-success btn-left-block "> + Agregar</a>
                             <br><br>
                             
                                 <tr>
@@ -291,42 +290,29 @@ height: 20px;
                             </thead>
                             
                             <tbody>
-                                <tr th:each="s: ${listaUsers}">
+                                <tr th:each="t: ${listaGrupos}">
                                     <td style="text-align: center;">
-                                        <img src="/img/perfilUsuario.jpg" alt="">
-                                        <a th:text="${s.nameUser}" href="#" class="user-link"></a>
-                                        <span th:text="${s.role.nameRole}" class="user-subhead"></span>
+                                        <a th:text="${t.nameTeam}" href="#" class="user-link" th:href="@{'/team/detailgrupo/' + ${t.idTeam}}"></a>
                                     </td>
-                                    <td th:text="${#dates.format(s.date,'dd/MM/yyyy')}" style="text-align: center;"></td>
                                     
-                                    <td style="text-align: center;">
-                                        <a th:text="${s.email}" href="#"></a>
-                                    </td>
+                                    <td th:text="${#dates.format(t.date,'dd/MM/yyyy')}" style="text-align: center;"></td>
+                                    
                                     <td style="width: 20%  ; text-align: center;">
                                        
-                                        <a th:href="@{'/user/modificar/' + ${s.idUser}}" class="table-link text-info">
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                   
-                                        <a th:href="@{/user/eliminar?id=}+${s.idUser}" class="table-link danger" >
-                                            <span class="fa-stack">
-                                                <i class="fa fa-square fa-stack-2x"></i>
-                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                       
+                                    <a th:href="@{'/team/unirsegrupo/' + ${t.idTeam}}"id="add-row" class="btn btn-success btn-left-block "> Unirse</a>
+                                                                        
                                     </td>
                                 </tr>
                                 
                         
                             </tbody>
                         </table>
+                       
                     </div>
                 </div>
             </div>
+             <span th:text ="${mensaje}" style="color: green;"></span>
+			<span th:text ="${mensaje2}" style="color: red;"></span>
              </div>
              <br><br><br>
         </div>
