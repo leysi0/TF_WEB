@@ -66,18 +66,6 @@ public class UserServiceImpl implements IUserService {
 	}
 	
 	@Override
-	@Transactional
-	public List<Users> buscarInstitucion(String institutionUser) {
-		return dUser.buscarInstitucion(institutionUser);
-	}
-	
-	@Override
-	@Transactional
-	public List<Users> buscarOcupacion(String occupationUser) {
-		return dUser.buscarOcupacion(occupationUser);
-	}
-
-	@Override
 	public Users getAccount(String correo) {
 		Users cuenta=new Users();
         cuenta=dUser.findByCorreo(correo);

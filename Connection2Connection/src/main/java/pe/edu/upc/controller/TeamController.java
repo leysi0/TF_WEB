@@ -78,7 +78,7 @@ public class TeamController {
 		else {
 				Date requestday=new Date();
 				objTeam.setDate(requestday);
-				
+				objTeam.setAmountTeam(5);
 				boolean flag = tService.insertar(objTeam);
 				if (flag) {
 					return "redirect:/team/listar";
@@ -116,7 +116,8 @@ public class TeamController {
         UserDetails  userDetail = (UserDetails) auth.getPrincipal();
         cuenta2 = this.uService.getAccount(userDetail.getUsername());
 		model.put("listaGrupos", tService.listar());
-		model.put("cuenta", cuenta2.getNameUser());
+		model.put("team", new Team());
+		model.put("cuenta", cuenta2);
         model.put("idCuenta", cuenta2.getIdUser());
 		return "listTeam";
 	}
@@ -142,19 +143,33 @@ public class TeamController {
 	        if (rpta==0) {
 	        	Integrantes.add(integrante);
 		        teamcito.setTeamXUser(Integrantes);
+		        if(teamcito.getAmountTeam()-1>0) {
+		        teamcito.setAmountTeam(teamcito.getAmountTeam()-1);
+		        
 		        boolean flag = this.tService.modificar(teamcito);
 		        
 		        model.addAttribute("mensaje", "Te has unido correctamente");
 	        	model.addAttribute("listaGrupos", tService.listar());
-	     		model.addAttribute("cuenta", cuenta2.getNameUser());
+	        	model.addAttribute("team", new Team());
+	     		model.addAttribute("cuenta", cuenta2);
 	            model.addAttribute("idCuenta", cuenta2.getIdUser());
 	            return "listTeam";
+		        }
+		        else {
+		        	model.addAttribute("mensaje2", "Capacidad al limite");
+		        	model.addAttribute("listaGrupos", tService.listar());
+		        	model.addAttribute("team", new Team());
+		    		model.addAttribute("cuenta", cuenta2);
+		            model.addAttribute("idCuenta", cuenta2.getIdUser());
+		        	return "listTeam";
+		        }
 			}
 	        else {
 	        	model.addAttribute("mensaje", "");
 	        	model.addAttribute("mensaje2", "Ya pertences al Grupo");
 	        	model.addAttribute("listaGrupos", tService.listar());
-	    		model.addAttribute("cuenta", cuenta2.getNameUser());
+	        	model.addAttribute("team", new Team());
+	    		model.addAttribute("cuenta", cuenta2);
 	            model.addAttribute("idCuenta", cuenta2.getIdUser());
 	        	return "listTeam";
 	        	
@@ -165,14 +180,30 @@ public class TeamController {
 	public String grupos(@PathVariable int id, Model model) 
 	throws ParseException
 	{
+		Optional<Team> team = tService.listarid(id);
+		Team teamcito = new Team();
+		teamcito = team.get();
 		
-	        model.addAttribute("cuenta", cuenta2.getNameUser());
+		 int rpta = 0;
+	        rpta = tService.validar(cuenta2.getIdUser(),teamcito.getIdTeam());
+	        if(rpta==1) {
+	        model.addAttribute("cuenta", cuenta2);
 	        model.addAttribute("idCuenta", cuenta2.getIdUser());
 			model.addAttribute("listTeamXUsers", txService.listarUsuariosXgrupo(id));
 			model.addAttribute("idTeam", id);
 			model.addAttribute("agenda", new Agenda());
 			model.addAttribute("listAgendas", aService.listarRecordatoriosXgrupo(id));
 			return "grupos";
+	        }
+	        else {
+	        	model.addAttribute("team", new Team());
+	        	model.addAttribute("mensaje2", "No pertences al Grupo");
+	        	model.addAttribute("listaGrupos", tService.listar());
+	    		model.addAttribute("cuenta", cuenta2);
+	            model.addAttribute("idCuenta", cuenta2.getIdUser());
+	        	return "listTeam";
+	        }
+	        
 		}
 	
 	
@@ -205,5 +236,22 @@ public class TeamController {
 	}
 	}
 
+	
+	@RequestMapping("/busqueda")
+	public String buscar(Map<String, Object> model, @ModelAttribute Team team ) throws ParseException {
+		List<Team> listaTeams;
+		team.setNameTeam(team.getNameTeam());
+		listaTeams = tService.buscarNombre(team.getNameTeam());
+		
+		if (listaTeams.isEmpty()) {
+			model.put("mensaje", "No se encontro");
+		}
+		model.put("listaGrupos", listaTeams);	
+		model.put("team", new Team());
+		model.put("cuenta", cuenta2);
+        model.put("idCuenta", cuenta2.getIdUser());
+		return "listTeam";
+	}
+	
 
 }

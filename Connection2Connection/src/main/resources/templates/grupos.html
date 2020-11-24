@@ -279,8 +279,8 @@ body {
                     </div>
                     <div class="card-body user-profile-card mb-3">
                         <img src="/img/perfilUsuario.jpg" class="user-profile-image rounded-circle" alt="" />
-                        <h4 th:text="${cuenta}" class="text-center h6 mt-2"></h4>
-                        <p class="text-center small">UI/UX Designer</p>
+                        <h4 th:text="${cuenta.nameUser}" class="text-center h6 mt-2"></h4>
+                        <p th:text="${cuenta.occupation}" class="text-center small"></p>
                         <a th:href="@{'/post/modificar/' + ${idCuenta}}" class="btn btn-theme btn-sm">Editar Perfil</a>
                     </div>
                     <hr />
@@ -288,8 +288,11 @@ body {
                     <div class="card-heading clearfix mt-3">
                         <h4 class="card-title">Acerca de mi</h4>
                     </div>
-                    <div class="card-body mb-3">
-                        <p class="mb-0">Lorem ipsum dolor sitelt amet, consectetur adipis icing elit, sed do eiusmod tempor incididunt utitily labore et dolore magna aliqua metavta.</p>
+                    <div class="card-body mb-3">    
+                        <h6 class="card-title">Institución:<p th:text="${cuenta.institution}" class="mb-0"></p> </h6>             
+                        <h6 class="card-title">Género: <p th:text="${cuenta.gender}" class="mb-0"></p></h6>
+                        <h6 class="card-title">Dirección: <p th:text="${cuenta.adress}" class="mb-0"></p></h6>
+						<h6 class="card-title">Teléfono: <p th:text="${cuenta.phone}" class="mb-0"></p></h6>
                     </div>
                     <hr />
                    

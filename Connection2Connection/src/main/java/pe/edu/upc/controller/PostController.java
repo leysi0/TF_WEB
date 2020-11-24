@@ -100,7 +100,7 @@ public class PostController {
         cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
     	model.put("user", new Users());
 		model.put("post", new Post());
-        model.put("cuenta", cuenta2.getNameUser());
+        model.put("cuenta", cuenta2);
         model.put("idCuenta", cuenta2.getIdUser());
 		model.put("listPosts", pService.listar());
 		model.put("comentario", new Comentario());
@@ -182,7 +182,7 @@ public class PostController {
 			Optional<Post> posteo = pService.listarid(id);
 			model.addAttribute("user", new Users());
 			model.addAttribute("post", posteo.get());
-	        model.addAttribute("cuenta", cuenta2.getNameUser());
+	        model.addAttribute("cuenta", cuenta2);
 	        model.addAttribute("idCuenta", cuenta2.getIdUser());
 			model.addAttribute("comentario", new Comentario());
 			model.addAttribute("listComentarios", cService.listarComentariosxPublicacion(id));	

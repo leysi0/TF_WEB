@@ -14,6 +14,4 @@ public interface IUserService {
 	public Optional<Users> listarId(int idUser);
 	List<Users> listar();
 	List<Users> buscarNombre(String nameUser);
-	List<Users> buscarInstitucion(String institutionUser);
-	List<Users> buscarOcupacion(String occupationUser);
 }

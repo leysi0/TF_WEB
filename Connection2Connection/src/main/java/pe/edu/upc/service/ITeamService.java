@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import pe.edu.upc.model.Post;
 import pe.edu.upc.model.Team;
+import pe.edu.upc.model.Users;
 
 
 public interface ITeamService {
@@ -14,4 +15,5 @@ public interface ITeamService {
 	Optional<Team> listarid(int id);
 	public boolean modificar(Team team);
 	public int  validar (int idUser,int idTeam);
+	List<Team> buscarNombre(String nameTeam);
 }

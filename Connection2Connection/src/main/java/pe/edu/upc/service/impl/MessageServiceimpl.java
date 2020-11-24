@@ -54,6 +54,12 @@ public class MessageServiceimpl implements IMessageService {
 		return dMessage.listaBandeja(correoReceptor);
 	}
 
+	@Override
+	public Message getMensaje(int id) {
+		// TODO Auto-generated method stub
+		return dMessage.findByMessage(id);
+	}
+
 
 	
 }

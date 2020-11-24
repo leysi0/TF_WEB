@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import pe.edu.upc.model.Message;
 import pe.edu.upc.model.Role;
+import pe.edu.upc.model.Users;
 
 
 public interface IMessageService {
@@ -14,4 +15,5 @@ public interface IMessageService {
 	List<Message> listar();
 	List<Message> listarEnviados(String correoEmisor);
 	List<Message> listarBandeja(String correoReceptor);
+	public Message getMensaje(int id);
 }

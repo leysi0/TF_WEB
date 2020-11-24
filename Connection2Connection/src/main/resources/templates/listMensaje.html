@@ -635,9 +635,9 @@
                     <li th:each="m: ${listaMensajes}" class="email-list-item">
                         <div class="recipient">
                             <img src="/img/perfilUsuario.jpg" alt="Profile Picture" />
-                            <a th:text="${m.user.nameUser}" class="recipient-name"></a>
+                            <a th:text="${m.user.nameUser}"  class="recipient-name"></a>
                         </div>
-                        <a th:text="${m.descripcion}" class="email-subject"><i class="starred">&nbsp;</i></a>
+                        <a th:text="${m.descripcion}" th:href="@{'/message/listarDetalleE/' + ${m.idMessage}}" class="email-subject"><i class="starred">&nbsp;</i></a>
                         <div class="email-footer">
                           <div class="email-action">
 
@@ -653,14 +653,16 @@
         </div>
         <div class="email-desc-wrapper" style="transform: translateX(10%);">
             <div class="email-header">
-                <div class="email-date">Dec 1, 2019 12:02 PM</div>
-                <div class="email-subject">Prepare Mockup as per the spec document and Submit by Monday!!!</div>
-                <p class="recipient"><span>From:</span> Paul Smith &lt;paul.smith@domain.com&gt;</p>
+            <br>
+                <div th:text="${#dates.format(mensaje.date,'DD/MM/YYYY hh:mm aa')}" class="email-date"></div>
+                <div th:text="${mensaje.asunto}" class="email-subject"></div>
+                <span>From:</span><p th:text="${mensaje.correoEmisor}" class="recipient"></p>
             </div>
             <div class="email-body">
-                <p>
-                    Thanks &amp; Regards <br />
-                    Julian Cruise
+                <br>
+                <br>
+                <p style="font-size: 22px;" th:text="${mensaje.descripcion}">
+                   
                 </p>
             </div>
             

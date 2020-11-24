@@ -198,7 +198,7 @@ public class UserController {
         UserDetails  userDetail = (UserDetails) auth.getPrincipal();
         cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
 		model.put("listaUsers", uService.listar());
-		model.put("cuenta", cuenta2.getNameUser());
+		model.put("cuenta", cuenta2);
 		model.put("idCuenta", cuenta2.getIdUser());
 		model.put("user", new Users());
 		return "listUser";

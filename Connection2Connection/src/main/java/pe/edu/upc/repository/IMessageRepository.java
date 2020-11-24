@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import pe.edu.upc.model.Message;
+import pe.edu.upc.model.Users;
 
 
 @Repository
@@ -18,4 +19,7 @@ public interface IMessageRepository extends JpaRepository<Message, Integer> {
 	
 	@Query("from Message m where m.user.email = :parametro")
 	List<Message> listaBandeja(@Param("parametro") String correoReceptor); //lista de correos de bandeja
+	
+	@Query("from Message m where m.idMessage=:parametro")
+	public Message findByMessage(@Param("parametro") int id);
 }

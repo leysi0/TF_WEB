@@ -108,6 +108,19 @@ public class MessageController {
         UserDetails  userDetail = (UserDetails) auth.getPrincipal();
         cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
 		model.put("listaMensajes", mService.listarEnviados(cuenta2.getEmail()));
+		model.put("mensaje", new Message());
+		return "listMensaje";
+	}
+	
+	@RequestMapping("/listarDetalleE/{id}")
+	public String listarDetalleE(@PathVariable int id,Map<String, Object> model) {
+		Authentication auth = SecurityContextHolder
+                .getContext()
+                .getAuthentication();
+        UserDetails  userDetail = (UserDetails) auth.getPrincipal();
+        cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
+		model.put("listaMensajes", mService.listarEnviados(cuenta2.getEmail()));
+		model.put("mensaje", mService.getMensaje(id));
 		return "listMensaje";
 	}
 	
@@ -119,7 +132,19 @@ public class MessageController {
         UserDetails  userDetail = (UserDetails) auth.getPrincipal();
         cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
 		model.put("listaMensajes", mService.listarBandeja(cuenta2.getEmail()));
+		model.put("mensaje", new Message());
 		return "listMensajeBandeja";
 	}
 	
+	@RequestMapping("/listarDetalleB/{id}")
+	public String listarDetalleB(@PathVariable int id,Map<String, Object> model) {
+		Authentication auth = SecurityContextHolder
+                .getContext()
+                .getAuthentication();
+        UserDetails  userDetail = (UserDetails) auth.getPrincipal();
+        cuenta2 = this.uService.getAccount(userDetail.getUsername()); //username=correo
+		model.put("listaMensajes", mService.listarBandeja(cuenta2.getEmail()));
+		model.put("mensaje", mService.getMensaje(id));
+		return "listMensajeBandeja";
+	}
 }

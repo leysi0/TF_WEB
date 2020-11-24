@@ -75,5 +75,11 @@ public class TeamServiceimpl implements ITeamService {
 		return rpta;
 	}
 
+	@Override
+	public List<Team> buscarNombre(String nameTeam) {
+		// TODO Auto-generated method stub
+		return dTeam.buscarNombre(nameTeam);
+	}
+
 	
 }
