@@ -106,19 +106,19 @@ form label {
           <div class="form-group">
             <label class="col-sm-2 control-label">Nombre</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" th:field="*{nameUser}"/>
+              <input maxlength="50" type="text" class="form-control" th:field="*{nameUser}"/>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Genero</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" th:field="*{gender}"/>
+              <input maxlength="20" type="text" class="form-control" th:field="*{gender}"/>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Ocupacion</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" th:field="*{occupation}"/>
+              <input maxlength="50" type="text" class="form-control" th:field="*{occupation}"/>
             </div>
           </div>
           <div class="form-group">
@@ -140,31 +140,31 @@ form label {
           <div class="form-group">
             <label class="col-sm-2 control-label">Direccion</label>
             <div class="col-sm-10">
-              <input type="tel" class="form-control" th:field="*{adress}"/>
+              <input  maxlength="50" type="tel" class="form-control" th:field="*{adress}"/>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Telefono</label>
             <div class="col-sm-10">
-              <input type="tel" class="form-control" th:field="*{phone}"/>
+              <input maxlength="9" type="tel" class="form-control" th:field="*{phone}"/>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">Institucion</label>
             <div class="col-sm-10">
-              <input type="tel" class="form-control" th:field="*{institution}"/>
+              <input maxlength="50" type="tel" class="form-control" th:field="*{institution}"/>
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-2 control-label">E-mail</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" th:field="*{email}"/>
+              <input maxlength="50" type="email" class="form-control" th:field="*{email}"/>
             </div>
           </div>
           <div class="form-group" style="display: none;">
             <label class="col-sm-2 control-label">Contraseña</label>
             <div class="col-sm-10">
-              <input type="tel" class="form-control" th:field="*{contra}" readonly/>
+              <input maxlength="15" type="tel" class="form-control" th:field="*{contra}" readonly/>
             </div>
           </div>
           <div class="form-group">

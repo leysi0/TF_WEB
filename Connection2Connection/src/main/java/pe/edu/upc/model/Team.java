@@ -27,7 +27,7 @@ public class Team implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTeam;
 	
-	@Column(name = "nameTeam", length=30, nullable =false)
+	@Column(name = "nameTeam", length=50, nullable =false)
 	private String nameTeam;
 	
 	

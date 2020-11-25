@@ -28,35 +28,35 @@ private static final long serialVersionUID = 1L;
 	private int idUser;
 	
 
-	@Column(name="nameUser", length=60, nullable=false)
+	@Column(name="nameUser", length=50, nullable=false)
 	private String nameUser;
 	
 
-	@Column(name="emailUser", length=60, nullable=false)
+	@Column(name="emailUser", length=50, nullable=false)
 	private String email;
 	
 
-	@Column(name="adressUser", length=60, nullable=false)
+	@Column(name="adressUser", length=50, nullable=false)
 	private String adress;
 
 	@Column(name="phoneUser", length=9, nullable=false)
 	private String phone;
 
-	@Column(name="institutionUser", length=60, nullable=false)
+	@Column(name="institutionUser", length=50, nullable=false)
 	private String institution;
 	
 
-	@Column(name="genderUser", length=10, nullable=false)
+	@Column(name="genderUser", length=20, nullable=false)
 	private String gender;
 	
 
-	@Column(name="occupationUser", length=60, nullable=false)
+	@Column(name="occupationUser", length=50, nullable=false)
 	private String occupation;
 	
 	@Column(name="dateUser", length=60, nullable=false)
 	private Date date;
 	
-	@Column(name="contra", length=60, nullable=false)
+	@Column(name="contra", length=200, nullable=false)
 	private String contra;
 	
 	@OneToOne

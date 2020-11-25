@@ -327,7 +327,7 @@ body {
                     <div class="card-body">
                         <div class="post">
                         <form th:action="@{'/team/registrarRecor/' + ${idTeam}}" method="post" th:object="${agenda}">
-                            <textarea th:field="*{description}" class="form-control" placeholder="Comunicales algo..." rows="4" required></textarea>
+                            <textarea maxlength="200" th:field="*{description}" class="form-control" placeholder="Comunicales algo..." rows="4" required></textarea>
                             <div class="post-options">
                                 <button type="submit" class="btn btn-outline-primary float-right">Anunciar</button>
                             </div>

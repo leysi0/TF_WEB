@@ -325,8 +325,9 @@ body {
                                        
                                         <form th:action="@{'/post/registrarcomentario/' + ${post.idPost}}" method="post" th:object="${comentario}">
                  
-                                            <textarea th:field="*{descripcion}" class="form-control" placeholder="Comenta algo" rows="1" required></textarea>
+                                            <textarea maxlength="80" th:field="*{descripcion}" class="form-control" placeholder="Comenta algo" rows="1" required></textarea>
                                             <div class="post-options">
+                                            
                                                 <p><button type="submit" class="btn btn-outline-primary float-right">Enviar Comentario</button></p>
                                             </div>
                                         </form>
@@ -349,30 +350,8 @@ body {
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-12 col-xl-3">
-                <div class="card card-white grid-margin">
-                    <div class="card-heading clearfix">
-                        <h4 class="card-title">Amigos</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="team">
-                            <div class="team-member">
-                                <div class="online on"></div>
-                                <img src="/img/perfilUsuario.jpg" alt="" />
-                            </div>
-                            <div class="team-member">
-                                <div class="online on"></div>
-                                <img src="/img/perfilUsuario.jpg" alt="" />
-                            </div>
-                            <div class="team-member">
-                                <div class="online off"></div>
-                                <img src="/img/perfilUsuario.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+            
+            
         </div>
         <!-- Row -->
     </div>

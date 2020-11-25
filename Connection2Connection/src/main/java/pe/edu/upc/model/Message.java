@@ -30,18 +30,18 @@ public class Message implements Serializable {
 	
 	@NotEmpty(message="No puede estar vacio")
 	@NotBlank(message="No puede estar en blanco")
-	@Column(name="asunto", length=60, nullable=false)
+	@Column(name="asunto", length=70, nullable=false)
 	private String asunto;
 	
 	@NotEmpty(message="No puede estar vacio")
 	@NotBlank(message="No puede estar en blanco")
-	@Column(name="descripcion", length=100, nullable=false)
+	@Column(name="descripcion", length=300, nullable=false)
 	private String descripcion;
 	
 	@Column(name="fecha", length=60, nullable=false)
 	private Date date;
 
-	@Column(name="correoEmisor", length=100, nullable=false)
+	@Column(name="correoEmisor", length=50, nullable=false)
 	private String correoEmisor;
 	
 	public String getCorreoEmisor() {

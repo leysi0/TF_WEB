@@ -30,7 +30,7 @@ public class Comentario implements Serializable {
 	@JoinColumn(name="idPost", nullable=false)
 	private Post post;
 	
-	@Column(name="descripcion", length=60, nullable=false)
+	@Column(name="descripcion", length=80, nullable=false)
 	private String descripcion;
 
 	@Column(name="date", length=60, nullable=false)

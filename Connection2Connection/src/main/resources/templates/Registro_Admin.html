@@ -99,29 +99,29 @@ background:#eee;
 					<form th:action="@{/user/registrarAdmin}" th:object="${user}" role="form" id="register_form" class="register-form mb40-xs">
                         <h3 class="no-margin-top mb20">Registro Administrador</h3>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Nombre" th:field="*{nameUser}"required>
+                            <input maxlength="50" class="form-control" type="text" placeholder="Nombre Apellidos" th:field="*{nameUser}"required>
                         </div>
                         <div class="form-group">
-                           <input class="form-control" type="text" placeholder="Institucion" th:field="*{institution}"required>
+                           <input maxlength="50" class="form-control" type="text" placeholder="Institucion" th:field="*{institution}"required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Direccion" th:field="*{adress}"required>
+                            <input maxlength="50" class="form-control" type="text" placeholder="Direccion" th:field="*{adress}"required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Telefono" th:field="*{phone}"required>
+                            <input maxlength="9" class="form-control" type="text" placeholder="Telefono" th:field="*{phone}"required>
                         </div>
                         
                          <div class="form-group">
-                            <input class="form-control" type="password" placeholder="Contraseña" th:field="*{contra}"required>
+                            <input maxlength="15" class="form-control" type="password" placeholder="Contraseña" th:field="*{contra}"required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Genero" th:field="*{gender}"required>
+                            <input maxlength="20" class="form-control" type="text" placeholder="Género" th:field="*{gender}"required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Ocupacion" th:field="*{occupation}"required>
+                            <input maxlength="50" class="form-control" type="text" placeholder="Ocupación" th:field="*{occupation}"required>
                         </div>
                         <div class="form-group">
-                           <input class="form-control" type="text" placeholder="Email" th:field="*{email}"required>
+                           <input maxlength="50" class="form-control" type="text" placeholder="Email" th:field="*{email}"required>
                         </div>
                         <div class="form-group no-margin-bottom mt20">
                             <button type="submit" class="btn btn-primary">Registrar</button>

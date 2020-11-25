@@ -308,7 +308,7 @@ body {
                     <div class="card-body">
                         <div class="post">
                         <form th:action="@{/post/registrar}" method="post" th:object="${post}">
-                            <textarea th:field="*{description}" class="form-control" placeholder="Publica Algo" rows="4" required></textarea>
+                            <textarea maxlength="80" th:field="*{description}" class="form-control" placeholder="Publica Algo" rows="4" required></textarea>
                             <div class="post-options">
                                 <button type="submit" class="btn btn-outline-primary float-right">Publicar</button>
                             </div>

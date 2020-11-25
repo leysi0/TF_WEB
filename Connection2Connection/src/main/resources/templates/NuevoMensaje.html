@@ -377,7 +377,7 @@ height: 20px;
 					<div class="form-group">
 				    	<label for="cc" class="col-sm-1 control-label"  style="color: white;" >Asunto:</label>
 				    	<div class="col-sm-11">
-                              <input th:field="*{asunto}"required type="text" class="form-control select2-offscreen" placeholder="Asunto" tabindex="-1">
+                              <input maxlength="70" th:field="*{asunto}"required type="text" class="form-control select2-offscreen" placeholder="Asunto" tabindex="-1">
 				    	</div>
 				  	</div>
 				  
@@ -390,7 +390,7 @@ height: 20px;
 					
 					<div class="form-group">
                         <label for="cc" class="col-sm-1 control-label"  style="color: white;"  >Mensaje:</label>
-						<textarea  class="form-control" id="message" name="body" rows="12" placeholder="Click aqui para escribir" th:field="*{descripcion}" required ></textarea>
+						<textarea maxlength="300" class="form-control" id="message" name="body" rows="12" placeholder="Click aqui para escribir" th:field="*{descripcion}" required ></textarea>
 					</div>
 					
 					<div class="btn_fin">	
